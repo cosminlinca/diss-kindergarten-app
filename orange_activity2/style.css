@@ -1,0 +1,40 @@
+body {
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+}
+
+#orange_pencil {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+}
+
+#tree {
+    left: 30%;
+    top: 15%;
+    position: fixed;
+}
+
+#giraffe {
+    left: 27%;
+    top: 55%;
+    position: fixed;
+}
+
+#monkey {
+    left: 20%;
+    top: 65%;
+    position: fixed;
+}
+
+#easter-eggs {
+    left: 60%;
+    top: 65%;
+    position: fixed;
+}
+
+#bunny {
+    left: 55%;
+    top: 40%;
+    position: fixed;
+}
