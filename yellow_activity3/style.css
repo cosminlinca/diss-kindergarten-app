@@ -1,0 +1,67 @@
+body {
+    background: url('paw-patrol.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#barometer_pencil {
+    bottom: 50px;
+    left: 0;
+    position: fixed;
+    width: 40%;
+    height: 40%;
+}
+
+#barometer_pencil img {
+    width: 60%;
+    height: auto;
+}
+
+#yellow_pencil {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    margin: 8px;
+}
+
+#yellow_pencil img {
+    width: 220px;
+    margin-right: 24px;
+    height: auto;
+}
+
+#sentence {
+    width: 60%;
+    height: 70%;
+    top: 100px;
+    position: fixed;
+    left: 25%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.word {
+    border: 5px solid green;
+    border-radius: 3px;
+    width: 30%;
+    height: 40%;
+    padding: 20px;
+    margin: 20px;
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+}
+
+.word img {
+    width: 40%;
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%
+}
+
+.image-click {
+    box-shadow: 5px 5px yellow;
+}
