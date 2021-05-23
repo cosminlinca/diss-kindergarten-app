@@ -1,0 +1,73 @@
+body {
+    background: url('images/rainbow.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#barometer_pencil {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    width: 40%;
+    height: 40%;
+}
+
+#barometer_pencil img {
+    width: 50%;
+    height: auto;
+}
+
+table.center-table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#yellowCircleInput {
+    display: none;
+}
+
+#greenCircleInput {
+    display: none;
+}
+
+#blueWaveInput {
+    display: none;
+}
+
+#yellowWaveInput {
+    display: none;
+}
+
+#purpleWaveInput {
+    display: none;
+}
+
+#purpleCircleInput {
+    display: none;
+}
+
+#blueTriangleInput {
+    display: none;
+}
+
+#redTriangleInput {
+    display: none;
+}
+
+#yellowTriangleInput {
+    display: none;
+}
+
+#greenWaveInput {
+    display: none;
+}
+
+#blueRibbonInput {
+    display: none;
+}
+
+#redRibbonInput {
+    display: none;
+}
