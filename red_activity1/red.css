@@ -6,6 +6,20 @@ body {
     background-size: cover;
 }
 
+#sound {
+    top: 0;
+    right: 0;
+    position: fixed;
+    width: 40%;
+    height: 40%;
+    display: none;
+}
+
+#sound_img {
+    width: 15%;
+    height: auto;
+}
+
 #barometer_pencil {
     bottom: 0;
     left: 0;
@@ -79,4 +93,9 @@ body {
     bottom: 0;
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
+}
+
+.red-table {
+    margin-left: 10%;
+    margin-top: 10%;
 }

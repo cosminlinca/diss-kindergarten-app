@@ -1,11 +1,32 @@
 <html>
 
 <link href="red.css" rel="stylesheet">
+<script src="red.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<body>
+<body onload="initialize()">
+
+    <table class="red-table">
+        <tr>
+            <td id="cifra2">
+                <img src="2.png" onclick="click_cifra('cifra_2')">
+            </td>
+            <td id="cifra3">
+                <img src="3.png" onclick="click_cifra('cifra_3')">
+            </td>
+            <td id="cifra4">
+                <img src="4.png" onclick="click_cifra('cifra_4')">
+            </td>
+        </tr>
+
+    </table>
+
+    <div id="sound">
+        <img id="sound_img" src="sound_removebg_preview_2.png">
+    </div>
 
     <div id="barometer_pencil">
-        <img src="red_pencil_removedback_1.png">
+        <img id="barometer_pencil_img" src="creionbarometru0_noback_1.png">
     </div>
 
     <div id="red_pencil">
