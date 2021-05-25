@@ -11,30 +11,45 @@ body {
 
 #tree {
     left: 30%;
-    top: 15%;
+    top: 10%;
     position: fixed;
+    width: 20%;
+    height: 65%;
+    cursor: pointer;
 }
 
 #giraffe {
-    left: 27%;
-    top: 55%;
+    left: 25%;
+    top: 53%;
     position: fixed;
+    width: 15%;
+    height: 30%;
+    cursor: pointer;
 }
 
 #monkey {
     left: 20%;
-    top: 65%;
+    top: 62%;
     position: fixed;
+    width: 12%;
+    height: 27%;
+    cursor: pointer;
 }
 
 #easter-eggs {
-    left: 60%;
+    left: 50%;
     top: 65%;
     position: fixed;
+    width: 15%;
+    height: 25%;
+    cursor: pointer;
 }
 
 #bunny {
-    left: 55%;
+    left: 60%;
     top: 40%;
     position: fixed;
+    width: 15%;
+    height: 40%;
+    cursor: pointer;
 }

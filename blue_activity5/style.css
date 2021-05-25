@@ -1,0 +1,70 @@
+body {
+    background-repeat: no-repeat;
+    background-size: 100% 100vh;
+}
+
+#blue_pencil {
+    bottom: 2%;
+    right: 3%;
+    position: fixed;
+}
+
+#rooster {
+    left: 62%;
+    top: 50%;
+    position: fixed;
+    border-radius: 30%;
+    cursor: pointer;
+    width: 15%;
+    height: 40%;
+}
+
+#sound_rooster {
+    top: 25%;
+    left: 62%;
+    position: fixed;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 15%;
+    width: 10%;
+}
+
+#dog {
+    left: 37%;
+    top: 50%;
+    position: fixed;
+    border-radius: 30%;
+    cursor: pointer;
+    width: 17%;
+    height: 40%;
+}
+
+#sound_dog {
+    top: 25%;
+    left: 40%;
+    position: fixed;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 15%;
+    width: 10%;
+}
+
+#cow {
+    left: 7%;
+    top: 47%;
+    position: fixed;
+    border-radius: 10%;
+    cursor: pointer;
+    width: 27%;
+    height: 45%;
+}
+
+#sound_cow {
+    top: 25%;
+    left: 18%;
+    position: fixed;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 15%;
+    width: 10%;
+}
