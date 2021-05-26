@@ -1,5 +1,35 @@
 let incercari = 1;
 
+function disable_images()
+{
+    document.getElementById("rosu").style.pointerEvents = "none";
+    document.getElementById("galben").style.pointerEvents = "none";
+    document.getElementById("verde").style.pointerEvents = "none";
+}
+
+function enable_images() {
+    document.getElementById("rosu").style.pointerEvents = "auto";
+    document.getElementById("galben").style.pointerEvents = "auto";
+    document.getElementById("verde").style.pointerEvents = "auto";
+}
+
+function initialize()
+{
+    document.getElementById("sound").style.display = "block";
+    disable_images();
+
+    let audio = new Audio('../red_activity1/recording_test.mp3');
+    audio.play().then(function() {
+
+        setTimeout(function() {
+            document.getElementById("sound").style.display = "none";
+            enable_images();
+
+            // TODO: Replace timeout value with recording duration
+        }, 5500);
+    });
+}
+
 function click_semafor(culoare) {
     switch(culoare) {
         case 'rosu':
@@ -18,35 +48,55 @@ function click_semafor(culoare) {
 
 function wrong_answer()
 {
-    // TODO: mesaj audio: culoarea semaforului nu este cea corecta, incearca din nou
-    let audio = new Audio('.mp3');
+    document.getElementById("sound").style.display = "block";
+    disable_images();
+
+    // TODO: Replace recording name
+    let audio = new Audio('../red_activity1/mai-incearca-Cori.mp3');
     audio.play().then(function () {
-        incercari++;
-        if(incercari === 3)
-        {
-            // TODO: mesaj audio: din pacate nu ai raspuns corect, vom reveni mai tarziu
-            let audio = new Audio('.mp3');
-            audio.play().then(function () {
-                let currentSymbol = localStorage.getItem('CurrentSymbol');
-                // 0 puncte, activitatea va fi reluata la final
-                localStorage.setItem(currentSymbol + '_Activity4', '0');
-                window.location.href = "../violet_activity5/index.html"
-            });
-        }
+
+        setTimeout(function() {
+            incercari++;
+            if(incercari === 3)
+            {
+                    // TODO: Replace recording name
+                    let audio = new Audio('../red_activity1/mai-incearca-Cori.mp3');
+
+                    audio.play().then(function () {
+                        let currentSymbol = localStorage.getItem('CurrentSymbol');
+                        // 0 puncte, activitatea va fi reluata la final
+                        localStorage.setItem(currentSymbol + '_Activity4', '0');
+
+                        setTimeout(function() {
+                            window.location.href = "../violet_activity5/index.html";
+                            // TODO: Replace timeout value with recording duration
+                        }, 3000);
+                    });
+            } else {
+                document.getElementById("sound").style.display = "none";
+                enable_images();
+            }
+            // TODO: Replace timeout value with recording duration
+        }, 2000);
     });
 }
 
 function right_answer()
 {
+    document.getElementById("sound").style.display = "block";
+    disable_images();
     document.getElementById('barometru').src = 'ROGV.png';
 
-    // TODO: mesaj audio: felicitari, culoarea corecta a semaforului este verde.
-    // ai completat activitatea, prin urmare creionul barometru s-a completat cu culoarea verde
-    let audio3 = new Audio('.mp3');
-    audio3.play().then(function () {
+    // TODO: replace recording name
+    let audio3 = new Audio('../red_activity1/bravo-Cori.mp3');
+    audio3.play().then(function() {
         let currentSymbol = localStorage.getItem('CurrentSymbol');
         // set number of points for this activity
         localStorage.setItem(currentSymbol+'_Activity4', '4');
-        window.location.href="../violet_activity5/index.html"
+
+        setTimeout(function() {
+            window.location.href="../violet_activity5/index.html";
+            // TODO: Replace timeout value with recording duration
+        }, 2000);
     });
 }
