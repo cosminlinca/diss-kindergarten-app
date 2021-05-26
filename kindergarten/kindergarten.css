@@ -1,0 +1,41 @@
+body {
+    background: url('curcubeu.png') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#grupe {
+    display: flex;
+    flex-direction: row;
+    top: 30%;
+    position: fixed;
+    left: 5%;
+    right: 5%;
+    width: 90%;
+    height: 70%;
+}
+
+.simbol {
+    width: 80%;
+    height: 80%;
+    padding: 20px;
+    margin: 20px;
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+}
+
+.simbol img{
+    width: 40%;
+    flex-shrink: 0;
+    min-width: 90%;
+    min-height: 100%
+}
+
+#iepuras {
+    height: 450px;
+    width: 800px;
+}
