@@ -1,4 +1,4 @@
-let incercari = 1;
+let incercari = 0;
 
 function disable_images()
 {
@@ -18,15 +18,14 @@ function initialize()
     document.getElementById("sound").style.display = "block";
     disable_images();
 
-    let audio = new Audio('../red_activity1/recording_test.mp3');
+    let audio = new Audio('./activity4.m4a');
     audio.play().then(function() {
 
         setTimeout(function() {
             document.getElementById("sound").style.display = "none";
             enable_images();
 
-            // TODO: Replace timeout value with recording duration
-        }, 5500);
+        }, 19000);
     });
 }
 
@@ -48,55 +47,58 @@ function click_semafor(culoare) {
 
 function wrong_answer()
 {
+    let currentSymbol = localStorage.getItem('CurrentSymbol');
+    let isAtSecondTry = localStorage.getItem(currentSymbol+'_Activity3_isAtSecondTry');
     document.getElementById("sound").style.display = "block";
     disable_images();
 
-    // TODO: Replace recording name
-    let audio = new Audio('../red_activity1/mai-incearca-Cori.mp3');
+    let audio = new Audio('./activity4_try_again.m4a');
     audio.play().then(function () {
 
         setTimeout(function() {
             incercari++;
+
+            if(isAtSecondTry === "true")
+            {
+                // if it is wrong also at the final attempt just go to next activity
+                window.location.href = "../blue_activity5/index.html";
+            }
+
             if(incercari === 3)
             {
-                    // TODO: Replace recording name
-                    let audio = new Audio('../red_activity1/mai-incearca-Cori.mp3');
+                // 0 puncte, activitatea va fi reluata la final
+                localStorage.setItem(currentSymbol + '_Activity4', '0');
+                localStorage.setItem(currentSymbol + '_Activity4_isAtSecondTry', "true");
 
-                    audio.play().then(function () {
-                        let currentSymbol = localStorage.getItem('CurrentSymbol');
-                        // 0 puncte, activitatea va fi reluata la final
-                        localStorage.setItem(currentSymbol + '_Activity4', '0');
-
-                        setTimeout(function() {
-                            window.location.href = "../violet_activity5/index.html";
-                            // TODO: Replace timeout value with recording duration
-                        }, 3000);
-                    });
+                window.location.href = "../blue_activity5/index.html";
             } else {
+                localStorage.setItem(currentSymbol+'_Activity4_isAtSecondTry', "false");
                 document.getElementById("sound").style.display = "none";
                 enable_images();
             }
-            // TODO: Replace timeout value with recording duration
-        }, 2000);
+        }, 6000);
     });
 }
 
 function right_answer()
 {
+    let currentSymbol = localStorage.getItem('CurrentSymbol');
+    let isAtSecondTry = localStorage.getItem(currentSymbol+'_Activity4_isAtSecondTry');
+
     document.getElementById("sound").style.display = "block";
     disable_images();
     document.getElementById('barometru').src = 'ROGV.png';
 
-    // TODO: replace recording name
-    let audio3 = new Audio('../red_activity1/bravo-Cori.mp3');
+    let audio3 = new Audio('./activity4_success.m4a');
     audio3.play().then(function() {
-        let currentSymbol = localStorage.getItem('CurrentSymbol');
-        // set number of points for this activity
-        localStorage.setItem(currentSymbol+'_Activity4', '4');
+
+        if(isAtSecondTry === "true")
+            localStorage.setItem(currentSymbol+'_Activity4', '5');
+        else
+            localStorage.setItem(currentSymbol+'_Activity4', '9');
 
         setTimeout(function() {
-            window.location.href="../violet_activity5/index.html";
-            // TODO: Replace timeout value with recording duration
-        }, 2000);
+            window.location.href="../blue_activity5/index.html";
+        }, 4000);
     });
 }
