@@ -71,3 +71,69 @@ table.center-table {
 #redRibbonInput {
     display: none;
 }
+
+#greenTriangleInput {
+    display: none;
+}
+
+#purpleTriangleInput {
+    display: none;
+}
+
+#yellowStarInput {
+    display: none;
+}
+
+#blueStarInput {
+    display: none;
+}
+
+#greenRibbonInput {
+    display: none;
+}
+
+#purpleRibbonInput {
+    display: none;
+}
+
+#yellowRibbonInput {
+    display: none;
+}
+
+#redStarInput {
+    display: none;
+}
+
+#greenStarInput {
+    display: none;
+}
+
+#purpleStarInput {
+    display: none;
+}
+
+#redWaveInput {
+    display: none;
+}
+
+#blueCircleInput {
+    display: none;
+}
+
+#redCircleInput {
+    display: none;
+}
+
+#sound {
+    top: 0;
+    right: 0;
+    position: fixed;
+    width: 10%;
+    height: 10%;
+    display: none;
+}
+
+#sound_img {
+    width: 80%;
+    height: auto;
+}

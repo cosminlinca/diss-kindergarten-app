@@ -1,7 +1,7 @@
 function initialize() {
-    document.getElementById("cifra2").disabled = true;
-    document.getElementById("cifra3").disabled = true;
-    document.getElementById("cifra4").disabled = true;
+    document.getElementById("cifra2").style.pointerEvents = "none";
+    document.getElementById("cifra3").style.pointerEvents = "none";
+    document.getElementById("cifra4").style.pointerEvents = "none";
 
     document.getElementById("sound").style.display = "block";
 
@@ -12,9 +12,9 @@ function initialize() {
         setTimeout(function() {
             document.getElementById("sound").style.display = "none";
 
-            document.getElementById("cifra2").disabled = false;
-            document.getElementById("cifra3").disabled = false;
-            document.getElementById("cifra4").disabled = false;
+            document.getElementById("cifra2").style.pointerEvents = "auto";
+            document.getElementById("cifra3").style.pointerEvents = "auto";
+            document.getElementById("cifra4").style.pointerEvents = "auto";
         }, 5500);
     });
 }

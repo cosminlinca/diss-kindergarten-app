@@ -10,13 +10,13 @@ body {
     top: 0;
     right: 0;
     position: fixed;
-    width: 40%;
-    height: 40%;
+    width: 10%;
+    height: 10%;
     display: none;
 }
 
 #sound_img {
-    width: 15%;
+    width: 80%;
     height: auto;
 }
 

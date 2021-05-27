@@ -1,7 +1,6 @@
 let incercari = 1;
 
-function disable_images()
-{
+function disable_images() {
     document.getElementById("rosu").style.pointerEvents = "none";
     document.getElementById("galben").style.pointerEvents = "none";
     document.getElementById("verde").style.pointerEvents = "none";
@@ -13,8 +12,7 @@ function enable_images() {
     document.getElementById("verde").style.pointerEvents = "auto";
 }
 
-function initialize()
-{
+function initialize() {
     document.getElementById("sound").style.display = "block";
     disable_images();
 
@@ -31,7 +29,7 @@ function initialize()
 }
 
 function click_semafor(culoare) {
-    switch(culoare) {
+    switch (culoare) {
         case 'rosu':
             wrong_answer();
             break;
@@ -39,39 +37,37 @@ function click_semafor(culoare) {
             wrong_answer();
             break;
         case 'verde':
-           right_answer();
+            right_answer();
             break;
         default:
             break;
     }
 }
 
-function wrong_answer()
-{
+function wrong_answer() {
     document.getElementById("sound").style.display = "block";
     disable_images();
 
     // TODO: Replace recording name
     let audio = new Audio('../red_activity1/mai-incearca-Cori.mp3');
-    audio.play().then(function () {
+    audio.play().then(function() {
 
         setTimeout(function() {
             incercari++;
-            if(incercari === 3)
-            {
-                    // TODO: Replace recording name
-                    let audio = new Audio('../red_activity1/mai-incearca-Cori.mp3');
+            if (incercari === 3) {
+                // TODO: Replace recording name
+                let audio = new Audio('../red_activity1/mai-incearca-Cori.mp3');
 
-                    audio.play().then(function () {
-                        let currentSymbol = localStorage.getItem('CurrentSymbol');
-                        // 0 puncte, activitatea va fi reluata la final
-                        localStorage.setItem(currentSymbol + '_Activity4', '0');
+                audio.play().then(function() {
+                    let currentSymbol = localStorage.getItem('CurrentSymbol');
+                    // 0 puncte, activitatea va fi reluata la final
+                    localStorage.setItem(currentSymbol + '_Activity4', '0');
 
-                        setTimeout(function() {
-                            window.location.href = "../violet_activity5/index.html";
-                            // TODO: Replace timeout value with recording duration
-                        }, 3000);
-                    });
+                    setTimeout(function() {
+                        window.location.href = "../violet_activity5/index.html";
+                        // TODO: Replace timeout value with recording duration
+                    }, 3000);
+                });
             } else {
                 document.getElementById("sound").style.display = "none";
                 enable_images();
@@ -81,8 +77,7 @@ function wrong_answer()
     });
 }
 
-function right_answer()
-{
+function right_answer() {
     document.getElementById("sound").style.display = "block";
     disable_images();
     document.getElementById('barometru').src = 'ROGV.png';
@@ -92,10 +87,10 @@ function right_answer()
     audio3.play().then(function() {
         let currentSymbol = localStorage.getItem('CurrentSymbol');
         // set number of points for this activity
-        localStorage.setItem(currentSymbol+'_Activity4', '4');
+        localStorage.setItem(currentSymbol + '_Activity4', '4');
 
         setTimeout(function() {
-            window.location.href="../violet_activity5/index.html";
+            window.location.href = "../violet_activity5/index.html";
             // TODO: Replace timeout value with recording duration
         }, 2000);
     });

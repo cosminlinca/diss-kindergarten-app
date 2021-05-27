@@ -1,4 +1,19 @@
 function initialize() {
+    document.getElementById("sound").style.display = "block";
+    // disable_images();
+
+    let audio = new Audio('../red_activity1/recording_test.mp3');
+    audio.play().then(function() {
+
+        setTimeout(function() {
+            document.getElementById("sound").style.display = "none";
+            // enable_images();
+
+            // TODO: Replace timeout value with recording duration
+        }, 5500);
+    });
+
+
     // YELLOW CIRCLE
     var yellowCircleTd = document.getElementById("yellowCircleTd");
 
@@ -21,9 +36,12 @@ function initialize() {
         // Get local storage
         localStorage = window.localStorage;
 
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "YellowCircle");
-        localStorage.setItem('YellowCircle_Name', yellowCircleInputText.value);
+        localStorage.setItem(currentGroup + '_YellowCircle_Name', yellowCircleInputText.value);
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -54,9 +72,12 @@ function initialize() {
         // Get local storage
         localStorage = window.localStorage;
 
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "GreenCircle");
-        localStorage.setItem('GreenCircle_Name', greenCircleInputText.value);
+        localStorage.setItem(currentGroup + '_GreenCircle_Name', greenCircleInputText.value);
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -87,9 +108,12 @@ function initialize() {
         // Get local storage
         localStorage = window.localStorage;
 
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "BlueWave");
-        localStorage.setItem('BlueWave_Name', blueWaveInputText.value);
+        localStorage.setItem(currentGroup + '_BlueWave_Name', blueWaveInputText.value);
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -120,9 +144,12 @@ function initialize() {
         // Get local storage
         localStorage = window.localStorage;
 
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "YellowWave");
-        localStorage.setItem('YellowWave_Name', yellowWaveInputText.value);
+        localStorage.setItem(currentGroup + '_YellowWave_Name', yellowWaveInputText.value);
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -153,9 +180,12 @@ function initialize() {
         // Get local storage
         localStorage = window.localStorage;
 
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "PurpleWave");
-        localStorage.setItem('PurpleWave_Name', purpleWaveInputText.value);
+        localStorage.setItem(currentGroup + '_PurpleWave_Name', purpleWaveInputText.value);
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -186,9 +216,12 @@ function initialize() {
         // Get local storage
         localStorage = window.localStorage;
 
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "PurpleCircle");
-        localStorage.setItem('PurpleCircle_Name', purpleCircleInputText.value);
+        localStorage.setItem(currentGroup + '_PurpleCircle_Name', purpleCircleInputText.value);
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -219,9 +252,12 @@ function initialize() {
         // Get local storage
         localStorage = window.localStorage;
 
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "BlueTriangle");
-        localStorage.setItem('BlueTriangle_Name', blueTriangleInputText.value);
+        localStorage.setItem(currentGroup + '_BlueTriangle_Name', blueTriangleInputText.value);
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -252,9 +288,12 @@ function initialize() {
         // Get local storage
         localStorage = window.localStorage;
 
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "RedTriangle");
-        localStorage.setItem('RedTriangle_Name', redTriangleInputText.value);
+        localStorage.setItem(currentGroup + '_RedTriangle_Name', redTriangleInputText.value);
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -285,9 +324,12 @@ function initialize() {
         // Get local storage
         localStorage = window.localStorage;
 
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "YellowTriangle");
-        localStorage.setItem('YellowTriangle_Name', yellowTriangleInputText.value);
+        localStorage.setItem(currentGroup + '_YellowTriangle_Name', yellowTriangleInputText.value);
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -318,9 +360,12 @@ function initialize() {
         // Get local storage
         localStorage = window.localStorage;
 
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "GreenWave");
-        localStorage.setItem('GreenWave_Name', greenWaveInputText.value);
+        localStorage.setItem(currentGroup + '_GreenWave_Name', greenWaveInputText.value);
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -351,9 +396,12 @@ function initialize() {
         // Get local storage
         localStorage = window.localStorage;
 
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "BlueRibbon");
-        localStorage.setItem('BlueRibbon_Name', blueRibbonInputText.value);
+        localStorage.setItem(currentGroup + '_BlueRibbon_Name', blueRibbonInputText.value);
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -384,9 +432,479 @@ function initialize() {
         // Get local storage
         localStorage = window.localStorage;
 
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "RedRibbon");
-        localStorage.setItem('RedRibbon_Name', redRibbonInputText.value);
+        localStorage.setItem(currentGroup + '_RedRibbon_Name', redRibbonInputText.value);
+
+        // Navigate
+        window.location.href = "../red_activity1/red.html";
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+    // GREEN TRIANGLE
+    var greenTriangleTd = document.getElementById("greenTriangleTd");
+
+    greenTriangleTd.onclick = function() {
+        var rgreenTriangleInput = document.getElementById("greenTriangleInput");
+
+        if (greenTriangleInput.style.display == "none" || greenTriangleInput.style.display == "") {
+            greenTriangleInput.style.display = "block";
+        } else if (greenTriangleInput.style.display == "block") {
+            greenTriangleInput.style.display = "none";
+        }
+    }
+
+    var greenTriangleSaveBtn = document.getElementById("greenTriangleSaveBtn");
+
+    greenTriangleSaveBtn.onclick = function() {
+        // Get child's name
+        var greenTriangleInputText = document.getElementById("greenTriangleInputText");
+
+        // Get local storage
+        localStorage = window.localStorage;
+
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
+        // Save in local storage
+        localStorage.setItem('CurrentSymbol', "GreenTriangle");
+        localStorage.setItem(currentGroup + '_GreenTriangle_Name', greenTriangleInputText.value);
+
+        // Navigate
+        window.location.href = "../red_activity1/red.html";
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+
+    // PURPLE TRIANGLE
+    var purpleTriangleTd = document.getElementById("purpleTriangleTd");
+
+    purpleTriangleTd.onclick = function() {
+        var purpleTriangleInput = document.getElementById("purpleTriangleInput");
+
+        if (purpleTriangleInput.style.display == "none" || purpleTriangleInput.style.display == "") {
+            purpleTriangleInput.style.display = "block";
+        } else if (purpleTriangleInput.style.display == "block") {
+            purpleTriangleInput.style.display = "none";
+        }
+    }
+
+    var purpleTriangleSaveBtn = document.getElementById("purpleTriangleSaveBtn");
+
+    purpleTriangleSaveBtn.onclick = function() {
+        // Get child's name
+        var purpleTriangleInputText = document.getElementById("purpleTriangleInputText");
+
+        // Get local storage
+        localStorage = window.localStorage;
+
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
+        // Save in local storage
+        localStorage.setItem('CurrentSymbol', "PurpleTriangle");
+        localStorage.setItem(currentGroup + '_PurpleTriangle_Name', purpleTriangleInputText.value);
+
+        // Navigate
+        window.location.href = "../red_activity1/red.html";
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+
+    // YELLOW STAR
+    var yellowStarTd = document.getElementById("yellowStarTd");
+
+    yellowStarTd.onclick = function() {
+        var yellowStarInput = document.getElementById("yellowStarInput");
+
+        if (yellowStarInput.style.display == "none" || yellowStarInput.style.display == "") {
+            yellowStarInput.style.display = "block";
+        } else if (yellowStarInput.style.display == "block") {
+            yellowStarInput.style.display = "none";
+        }
+    }
+
+    var yellowStarSaveBtn = document.getElementById("yellowStarSaveBtn");
+
+    yellowStarSaveBtn.onclick = function() {
+        // Get child's name
+        var yellowStarInputText = document.getElementById("yellowStarInputText");
+
+        // Get local storage
+        localStorage = window.localStorage;
+
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
+        // Save in local storage
+        localStorage.setItem('CurrentSymbol', "YellowStar");
+        localStorage.setItem(currentGroup + '_YellowStar_Name', yellowStarInputText.value);
+
+        // Navigate
+        window.location.href = "../red_activity1/red.html";
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+
+    // BLUE STAR
+    var yellowStarTd = document.getElementById("blueStarTd");
+
+    blueStarTd.onclick = function() {
+        var blueStarInput = document.getElementById("blueStarInput");
+
+        if (blueStarInput.style.display == "none" || blueStarInput.style.display == "") {
+            blueStarInput.style.display = "block";
+        } else if (blueStarInput.style.display == "block") {
+            blueStarInput.style.display = "none";
+        }
+    }
+
+    var blueStarSaveBtn = document.getElementById("blueStarSaveBtn");
+
+    blueStarSaveBtn.onclick = function() {
+        // Get child's name
+        var blueStarInputText = document.getElementById("blueStarInputText");
+
+        // Get local storage
+        localStorage = window.localStorage;
+
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
+        // Save in local storage
+        localStorage.setItem('CurrentSymbol', "BlueStar");
+        localStorage.setItem(currentGroup + '_BlueStar_Name', blueStarInputText.value);
+
+        // Navigate
+        window.location.href = "../red_activity1/red.html";
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+
+    // GREEN RIBBON
+    var greenRibbonTd = document.getElementById("greenRibbonTd");
+
+    greenRibbonTd.onclick = function() {
+        var greenRibbonInput = document.getElementById("greenRibbonInput");
+
+        if (greenRibbonInput.style.display == "none" || greenRibbonInput.style.display == "") {
+            greenRibbonInput.style.display = "block";
+        } else if (greenRibbonInput.style.display == "block") {
+            greenRibbonInput.style.display = "none";
+        }
+    }
+
+    var greenRibbonSaveBtn = document.getElementById("greenRibbonSaveBtn");
+
+    greenRibbonSaveBtn.onclick = function() {
+        // Get child's name
+        var greenRibbonInputText = document.getElementById("greenRibbonInputText");
+
+        // Get local storage
+        localStorage = window.localStorage;
+
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
+        // Save in local storage
+        localStorage.setItem('CurrentSymbol', "GreenRibbon");
+        localStorage.setItem(currentGroup + '_GreenRibbon_Name', greenRibbonInputText.value);
+
+        // Navigate
+        window.location.href = "../red_activity1/red.html";
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+
+    // PURPLE RIBBON
+    var purpleRibbonTd = document.getElementById("purpleRibbonTd");
+
+    purpleRibbonTd.onclick = function() {
+        var purpleRibbonInput = document.getElementById("purpleRibbonInput");
+
+        if (purpleRibbonInput.style.display == "none" || purpleRibbonInput.style.display == "") {
+            purpleRibbonInput.style.display = "block";
+        } else if (purpleRibbonInput.style.display == "block") {
+            purpleRibbonInput.style.display = "none";
+        }
+    }
+
+    var purpleRibbonSaveBtn = document.getElementById("purpleRibbonSaveBtn");
+
+    purpleRibbonSaveBtn.onclick = function() {
+        // Get child's name
+        var purpleRibbonInputText = document.getElementById("purpleRibbonInputText");
+
+        // Get local storage
+        localStorage = window.localStorage;
+
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
+        // Save in local storage
+        localStorage.setItem('CurrentSymbol', "PurpleRibbon");
+        localStorage.setItem(currentGroup + '_PurpleRibbon_Name', purpleRibbonInputText.value);
+
+        // Navigate
+        window.location.href = "../red_activity1/red.html";
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+
+    // YELLOW RIBBON
+    var yellowRibbonTd = document.getElementById("yellowRibbonTd");
+
+    yellowRibbonTd.onclick = function() {
+        var yellowRibbonInput = document.getElementById("yellowRibbonInput");
+
+        if (yellowRibbonInput.style.display == "none" || yellowRibbonInput.style.display == "") {
+            yellowRibbonInput.style.display = "block";
+        } else if (yellowRibbonInput.style.display == "block") {
+            yellowRibbonInput.style.display = "none";
+        }
+    }
+
+    var yellowRibbonSaveBtn = document.getElementById("yellowRibbonSaveBtn");
+
+    yellowRibbonSaveBtn.onclick = function() {
+        // Get child's name
+        var yellowRibbonInputText = document.getElementById("yellowRibbonInputText");
+
+        // Get local storage
+        localStorage = window.localStorage;
+
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
+        // Save in local storage
+        localStorage.setItem('CurrentSymbol', "YellowRibbon");
+        localStorage.setItem(currentGroup + '_YellowRibbon_Name', yellowRibbonInputText.value);
+
+        // Navigate
+        window.location.href = "../red_activity1/red.html";
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+
+    // RED STAR
+    var redStarTd = document.getElementById("redStarTd");
+
+    redStarTd.onclick = function() {
+        var redStarInput = document.getElementById("redStarInput");
+
+        if (redStarInput.style.display == "none" || redStarInput.style.display == "") {
+            redStarInput.style.display = "block";
+        } else if (redStarInput.style.display == "block") {
+            redStarInput.style.display = "none";
+        }
+    }
+
+    var redStarSaveBtn = document.getElementById("redStarSaveBtn");
+
+    redStarSaveBtn.onclick = function() {
+        // Get child's name
+        var redStarInputText = document.getElementById("redStarInputText");
+
+        // Get local storage
+        localStorage = window.localStorage;
+
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
+        // Save in local storage
+        localStorage.setItem('CurrentSymbol', "RedStar");
+        localStorage.setItem(currentGroup + '_RedStar_Name', redStarInputText.value);
+
+        // Navigate
+        window.location.href = "../red_activity1/red.html";
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+
+    // GREEN STAR
+    var greenStarTd = document.getElementById("greenStarTd");
+
+    greenStarTd.onclick = function() {
+        var greenStarInput = document.getElementById("greenStarInput");
+
+        if (greenStarInput.style.display == "none" || greenStarInput.style.display == "") {
+            greenStarInput.style.display = "block";
+        } else if (greenStarInput.style.display == "block") {
+            greenStarInput.style.display = "none";
+        }
+    }
+
+    var greenStarSaveBtn = document.getElementById("greenStarSaveBtn");
+
+    greenStarSaveBtn.onclick = function() {
+        // Get child's name
+        var greenStarInputText = document.getElementById("greenStarInputText");
+
+        // Get local storage
+        localStorage = window.localStorage;
+
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
+        // Save in local storage
+        localStorage.setItem('CurrentSymbol', "GreenStar");
+        localStorage.setItem(currentGroup + '_GreenStar_Name', greenStarInputText.value);
+
+        // Navigate
+        window.location.href = "../red_activity1/red.html";
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+
+    // PURPLE STAR
+    var purpleStarTd = document.getElementById("purpleStarTd");
+
+    purpleStarTd.onclick = function() {
+        var purpleStarInput = document.getElementById("purpleStarInput");
+
+        if (purpleStarInput.style.display == "none" || purpleStarInput.style.display == "") {
+            purpleStarInput.style.display = "block";
+        } else if (purpleStarInput.style.display == "block") {
+            purpleStarInput.style.display = "none";
+        }
+    }
+
+    var purpleStarSaveBtn = document.getElementById("purpleStarSaveBtn");
+
+    purpleStarSaveBtn.onclick = function() {
+        // Get child's name
+        var purpleStarInputText = document.getElementById("purpleStarInputText");
+
+        // Get local storage
+        localStorage = window.localStorage;
+
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
+        // Save in local storage
+        localStorage.setItem('CurrentSymbol', "PurpleStar");
+        localStorage.setItem(currentGroup + '_PurpleStar_Name', purpleStarInputText.value);
+
+        // Navigate
+        window.location.href = "../red_activity1/red.html";
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+
+    // RED WAVE
+    var redWaveTd = document.getElementById("redWaveTd");
+
+    redWaveTd.onclick = function() {
+        var redWaveInput = document.getElementById("redWaveInput");
+
+        if (redWaveInput.style.display == "none" || redWaveInput.style.display == "") {
+            redWaveInput.style.display = "block";
+        } else if (redWaveInput.style.display == "block") {
+            redWaveInput.style.display = "none";
+        }
+    }
+
+    var redWaveSaveBtn = document.getElementById("redWaveSaveBtn");
+
+    redWaveSaveBtn.onclick = function() {
+        // Get child's name
+        var redWaveInputText = document.getElementById("redWaveInputText");
+
+        // Get local storage
+        localStorage = window.localStorage;
+
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
+        // Save in local storage
+        localStorage.setItem('CurrentSymbol', "RedWave");
+        localStorage.setItem(currentGroup + '_RedWave_Name', redWaveInputText.value);
+
+        // Navigate
+        window.location.href = "../red_activity1/red.html";
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+
+    // BLUE CIRCLE
+    var blueCircleTd = document.getElementById("blueCircleTd");
+
+    blueCircleTd.onclick = function() {
+        var blueCircleInput = document.getElementById("blueCircleInput");
+
+        if (blueCircleInput.style.display == "none" || blueCircleInput.style.display == "") {
+            blueCircleInput.style.display = "block";
+        } else if (blueCircleInput.style.display == "block") {
+            blueCircleInput.style.display = "none";
+        }
+    }
+
+    var blueCircleSaveBtn = document.getElementById("blueCircleSaveBtn");
+
+    blueCircleSaveBtn.onclick = function() {
+        // Get child's name
+        var blueCircleInputText = document.getElementById("blueCircleInputText");
+
+        // Get local storage
+        localStorage = window.localStorage;
+
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
+        // Save in local storage
+        localStorage.setItem('CurrentSymbol', "BlueCircle");
+        localStorage.setItem(currentGroup + '_BlueCircle_Name', blueCircleInputText.value);
+
+        // Navigate
+        window.location.href = "../red_activity1/red.html";
+    }
+
+    // ---------------------------------------------------------------------------------------------
+
+
+    // RED CIRCLE
+    var redCircleTd = document.getElementById("redCircleTd");
+
+    redCircleTd.onclick = function() {
+        var redCircleInput = document.getElementById("redCircleInput");
+
+        if (redCircleInput.style.display == "none" || redCircleInput.style.display == "") {
+            redCircleInput.style.display = "block";
+        } else if (redCircleInput.style.display == "block") {
+            redCircleInput.style.display = "none";
+        }
+    }
+
+    var redCircleSaveBtn = document.getElementById("redCircleSaveBtn");
+
+    redCircleSaveBtn.onclick = function() {
+        // Get child's name
+        var redCircleInputText = document.getElementById("redCircleInputText");
+
+        // Get local storage
+        localStorage = window.localStorage;
+
+        // Get group
+        let currentGroup = localStorage.getItem('CurrentGroup');
+
+        // Save in local storage
+        localStorage.setItem('CurrentSymbol', "RedCircle");
+        localStorage.setItem(currentGroup + '_RedCircle_Name', redCircleInputText.value);
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
