@@ -1,22 +1,19 @@
 let selected = [];
 let incercari = 0;
 
-function disable_images()
-{
+function disable_images() {
     document.getElementById("os").style.pointerEvents = "none";
     document.getElementById("catelus").style.pointerEvents = "none";
     document.getElementById("mananca").style.pointerEvents = "none";
 }
 
-function enable_images()
-{
+function enable_images() {
     document.getElementById("os").style.pointerEvents = "auto";
     document.getElementById("catelus").style.pointerEvents = "auto";
     document.getElementById("mananca").style.pointerEvents = "auto";
 }
 
-function initialize()
-{
+function initialize() {
     disable_images();
     document.getElementById("sound").style.display = "block";
 
@@ -31,66 +28,60 @@ function initialize()
     });
 }
 
-function click_image(image, image_id){
+function click_image(image, image_id) {
     // add image in the list of images clicked
     selected.push(image_id);
 
     // make image with clicked id come in front
     handle_image_click(image);
 
-    if(selected.length === 3)
-    {
+    if (selected.length === 3) {
         document.getElementById("sound").style.display = "block";
         disable_images();
 
         let currentSymbol = localStorage.getItem('CurrentSymbol');
-        let isAtSecondTry = localStorage.getItem(currentSymbol+'_Activity3_isAtSecondTry');
+        let isAtSecondTry = localStorage.getItem(currentSymbol + '_Activity3_isAtSecondTry');
 
         // check right order
-        if (selected[0] === 1 && selected[1] === 2 && selected[2] === 3)
-        {
+        if (selected[0] === 1 && selected[1] === 2 && selected[2] === 3) {
             document.getElementById('barometru').src = 'ROG.png';
             let audio = new Audio('./activity3_success.m4a');
-            audio.play().then(function () {
+            audio.play().then(function() {
 
-                if(isAtSecondTry === "true")
-                    // Second try => 5 points
-                    localStorage.setItem(currentSymbol+'_Activity3', '5');
+                if (isAtSecondTry === "true")
+                // Second try => 5 points
+                    localStorage.setItem(currentSymbol + '_Activity3', '5');
                 else
-                    // First try => 9 points
-                    localStorage.setItem(currentSymbol+'_Activity3', '9');
+                // First try => 9 points
+                    localStorage.setItem(currentSymbol + '_Activity3', '9');
 
                 setTimeout(function() {
-                    window.location.href="../green_activity4/index.html";
+                    window.location.href = "../green_activity4/index.html";
                 }, 3000);
             });
-        }
-        else {
+        } else {
             let audio = new Audio('./activity3_try_again.m4a');
-            audio.play().then(function () {
+            audio.play().then(function() {
                 setTimeout(function() {
                     // Empty image selection
                     selected = [];
                     let images = document.getElementsByClassName('word');
-                    for(let i=0;i<images.length;i++)
-                    {
+                    for (let i = 0; i < images.length; i++) {
                         images[i].classList.remove('image-click');
                     }
-                    incercari ++;
+                    incercari++;
 
-                    if(isAtSecondTry === "true")
-                    {
+                    if (isAtSecondTry === "true") {
                         // if it is wrong also at the final attempt just go to next activity
-                        window.location.href="../green_activity4/index.html";
+                        window.location.href = "../green_activity4/index.html";
                     }
 
-                    if(incercari === 3)
-                    {
+                    if (incercari === 3) {
                         // 0 puncte, activitatea va fi reluata la final
-                        localStorage.setItem(currentSymbol+'_Activity3', '0');
-                        localStorage.setItem(currentSymbol+'_Activity3_isAtSecondTry', "true");
+                        localStorage.setItem(currentSymbol + '_Activity3', '0');
+                        localStorage.setItem(currentSymbol + '_Activity3_isAtSecondTry', "true");
 
-                        window.location.href="../green_activity4/index.html";
+                        window.location.href = "../green_activity4/index.html";
                     } else {
                         document.getElementById("sound").style.display = "none";
                         enable_images();

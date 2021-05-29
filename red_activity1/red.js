@@ -1,3 +1,15 @@
+function disable_images() {
+    document.getElementById("cifra2").style.pointerEvents = "none";
+    document.getElementById("cifra3").style.pointerEvents = "none";
+    document.getElementById("cifra4").style.pointerEvents = "none";
+}
+
+function enable_images() {
+    document.getElementById("cifra2").style.pointerEvents = "auto";
+    document.getElementById("cifra3").style.pointerEvents = "auto";
+    document.getElementById("cifra4").style.pointerEvents = "auto";
+}
+
 function initialize() {
     document.getElementById("cifra2").style.pointerEvents = "none";
     document.getElementById("cifra3").style.pointerEvents = "none";
@@ -39,21 +51,53 @@ function click_cifra(cifra) {
 }
 
 function wrong_answer() {
-    // TODO: mesaj audio: numarul de girafe nu este corect
-    let audio = new Audio('mai-incearca-Cori.mp3');
+    let currentGroup = localStorage.getItem('CurrentGroup');
+    let currentSymbol = localStorage.getItem('CurrentSymbol');
+    let isAtSecondTry = localStorage.getItem(currentGroup + "_" + currentSymbol + '_Activity1_isAtSecondTry');
+
+    document.getElementById("sound").style.display = "block";
+    disable_images();
+
+    let audio = new Audio('../green_activity4/activity4_try_again.m4a');
     audio.play().then(function() {
-        incercari++;
-        if (incercari == 3) {
-            // TODO: mesaj audio: din pacate nu ai raspuns corect, vom reveni mai tarziu
-            let audio = new Audio('mai-incearca-Cori.mp3');
-            audio.play().then(function() {
-                let currentSymbol = localStorage.getItem('CurrentSymbol');
+
+        setTimeout(function() {
+            incercari++;
+
+            if (isAtSecondTry === "true") {
+                // if it is wrong also at the final attempt just go to next activity
+                window.location.href = "../orange_activity2/index.html";
+            }
+
+            if (incercari === 3) {
                 // 0 puncte, activitatea va fi reluata la final
-                localStorage.setItem(currentSymbol + '_Activity1', '0');
-                window.location.href = "../orange_activity2/index.html"
-            });
-        }
+                localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity1', '0');
+                localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity1_isAtSecondTry', "true");
+
+                window.location.href = "../orange_activity2/index.html";
+            } else {
+                localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity1_isAtSecondTry', "false");
+                document.getElementById("sound").style.display = "none";
+                enable_images();
+            }
+        }, 6000);
     });
+
+    // // TODO: mesaj audio: numarul de girafe nu este corect
+    // let audio = new Audio('mai-incearca-Cori.mp3');
+    // audio.play().then(function() {
+    //     incercari++;
+    //     if (incercari == 3) {
+    //         // TODO: mesaj audio: din pacate nu ai raspuns corect, vom reveni mai tarziu
+    //         let audio = new Audio('mai-incearca-Cori.mp3');
+    //         audio.play().then(function() {
+
+    //             // 0 puncte, activitatea va fi reluata la final
+    //             localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity1', '0');
+    //             window.location.href = "../orange_activity2/index.html"
+    //         });
+    //     }
+    // });
 }
 
 function right_answer() {
@@ -63,9 +107,16 @@ function right_answer() {
     // ai completat activitatea, prin urmare creionul barometru s-a completat cu culoarea rosie
     let audio3 = new Audio('bravo-Cori.mp3');
     audio3.play().then(function() {
+        let currentGroup = localStorage.getItem('CurrentGroup');
         let currentSymbol = localStorage.getItem('CurrentSymbol');
-        // set number of points for this activity
-        localStorage.setItem(currentSymbol + '_Activity1', '4');
+        let isAtSecondTry = localStorage.getItem(currentGroup + "_" + currentSymbol + '_Activity1_isAtSecondTry');
+
+        if (isAtSecondTry == "true") {
+            // set number of points for this activity
+            localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity1', '5');
+        } else {
+            localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity1', '9');
+        }
 
         setTimeout(function() {
             window.location.href = "../orange_activity2/index.html";

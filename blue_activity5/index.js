@@ -23,7 +23,7 @@ function onAnimalClick(id) {
         document.getElementById('barometru').src = 'ROGVA.png';
         // TODO: mesaj audio succes
         let audio = new Audio('.mp3');
-        audio.play().then(function () {
+        audio.play().then(function() {
             let currentSymbol = localStorage.getItem('CurrentSymbol');
             // set number of points for this activity
             localStorage.setItem(currentSymbol + '_Activity5', '2');
@@ -33,7 +33,7 @@ function onAnimalClick(id) {
         if (trials >= 3) {
             // TODO: mesaj audio negativ
             let audio = new Audio('.mp3');
-            audio.play().then(function () {
+            audio.play().then(function() {
                 let currentSymbol = localStorage.getItem('CurrentSymbol');
                 // 0 puncte, activitatea va fi reluata la final
                 localStorage.setItem(currentSymbol + '_Activity5', '0');
