@@ -1,0 +1,43 @@
+body {
+    background-color: bisque;
+    /*background: url('felicitari.PNG') no-repeat center center fixed;*/
+    /*-webkit-background-size: cover;*/
+    /*-moz-background-size: cover;*/
+    /*-o-background-size: cover;*/
+    /*background-size: cover;*/
+}
+
+
+#creioane {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    margin: 8px;
+}
+
+#creioane img {
+    width: 600px;
+    height: auto;
+}
+
+#butoane {
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 30%;
+    top: 200px;
+    position: fixed;
+    left: 35%;
+}
+
+#butoane button{
+    background-color: aliceblue;
+    width: 80%;
+    height: 20%;
+    font-size: 22px;
+    color: darkblue;
+    cursor: pointer;
+    border-radius: 20px;
+}
