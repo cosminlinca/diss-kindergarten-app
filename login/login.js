@@ -1,3 +1,17 @@
+function initialize_second_try_flags()
+{
+    let currentGroup = localStorage.getItem('CurrentGroup');
+    let currentSymbol = localStorage.getItem('CurrentSymbol');
+
+    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity1_isAtSecondTry', "false");
+    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity2_isAtSecondTry', "false");
+    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity3_isAtSecondTry', "false");
+    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity4_isAtSecondTry', "false");
+    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5_isAtSecondTry', "false");
+    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity6_isAtSecondTry', "false");
+    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7_isAtSecondTry', "false");
+}
+
 function initialize() {
     document.getElementById("sound").style.display = "block";
     // disable_images();
@@ -43,6 +57,8 @@ function initialize() {
         localStorage.setItem('CurrentSymbol', "YellowCircle");
         localStorage.setItem(currentGroup + '_YellowCircle_Name', yellowCircleInputText.value);
 
+        initialize_second_try_flags();
+
         // Navigate
         window.location.href = "../red_activity1/red.html";
     }
@@ -78,6 +94,8 @@ function initialize() {
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "GreenCircle");
         localStorage.setItem(currentGroup + '_GreenCircle_Name', greenCircleInputText.value);
+
+        initialize_second_try_flags();
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -115,6 +133,8 @@ function initialize() {
         localStorage.setItem('CurrentSymbol', "BlueWave");
         localStorage.setItem(currentGroup + '_BlueWave_Name', blueWaveInputText.value);
 
+        initialize_second_try_flags();
+
         // Navigate
         window.location.href = "../red_activity1/red.html";
     }
@@ -150,6 +170,8 @@ function initialize() {
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "YellowWave");
         localStorage.setItem(currentGroup + '_YellowWave_Name', yellowWaveInputText.value);
+
+        initialize_second_try_flags();
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -187,6 +209,8 @@ function initialize() {
         localStorage.setItem('CurrentSymbol', "PurpleWave");
         localStorage.setItem(currentGroup + '_PurpleWave_Name', purpleWaveInputText.value);
 
+        initialize_second_try_flags();
+
         // Navigate
         window.location.href = "../red_activity1/red.html";
     }
@@ -222,6 +246,8 @@ function initialize() {
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "PurpleCircle");
         localStorage.setItem(currentGroup + '_PurpleCircle_Name', purpleCircleInputText.value);
+
+        initialize_second_try_flags();
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -259,6 +285,8 @@ function initialize() {
         localStorage.setItem('CurrentSymbol', "BlueTriangle");
         localStorage.setItem(currentGroup + '_BlueTriangle_Name', blueTriangleInputText.value);
 
+        initialize_second_try_flags();
+
         // Navigate
         window.location.href = "../red_activity1/red.html";
     }
@@ -294,6 +322,8 @@ function initialize() {
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "RedTriangle");
         localStorage.setItem(currentGroup + '_RedTriangle_Name', redTriangleInputText.value);
+
+        initialize_second_try_flags();
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -331,6 +361,8 @@ function initialize() {
         localStorage.setItem('CurrentSymbol', "YellowTriangle");
         localStorage.setItem(currentGroup + '_YellowTriangle_Name', yellowTriangleInputText.value);
 
+        initialize_second_try_flags();
+
         // Navigate
         window.location.href = "../red_activity1/red.html";
     }
@@ -366,6 +398,8 @@ function initialize() {
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "GreenWave");
         localStorage.setItem(currentGroup + '_GreenWave_Name', greenWaveInputText.value);
+
+        initialize_second_try_flags();
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -403,6 +437,8 @@ function initialize() {
         localStorage.setItem('CurrentSymbol', "BlueRibbon");
         localStorage.setItem(currentGroup + '_BlueRibbon_Name', blueRibbonInputText.value);
 
+        initialize_second_try_flags();
+
         // Navigate
         window.location.href = "../red_activity1/red.html";
     }
@@ -439,6 +475,8 @@ function initialize() {
         localStorage.setItem('CurrentSymbol', "RedRibbon");
         localStorage.setItem(currentGroup + '_RedRibbon_Name', redRibbonInputText.value);
 
+        initialize_second_try_flags();
+
         // Navigate
         window.location.href = "../red_activity1/red.html";
     }
@@ -473,6 +511,8 @@ function initialize() {
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "GreenTriangle");
         localStorage.setItem(currentGroup + '_GreenTriangle_Name', greenTriangleInputText.value);
+
+        initialize_second_try_flags();
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -510,6 +550,8 @@ function initialize() {
         localStorage.setItem('CurrentSymbol', "PurpleTriangle");
         localStorage.setItem(currentGroup + '_PurpleTriangle_Name', purpleTriangleInputText.value);
 
+        initialize_second_try_flags();
+
         // Navigate
         window.location.href = "../red_activity1/red.html";
     }
@@ -545,6 +587,8 @@ function initialize() {
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "YellowStar");
         localStorage.setItem(currentGroup + '_YellowStar_Name', yellowStarInputText.value);
+
+        initialize_second_try_flags();
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -582,6 +626,8 @@ function initialize() {
         localStorage.setItem('CurrentSymbol', "BlueStar");
         localStorage.setItem(currentGroup + '_BlueStar_Name', blueStarInputText.value);
 
+        initialize_second_try_flags();
+
         // Navigate
         window.location.href = "../red_activity1/red.html";
     }
@@ -617,6 +663,8 @@ function initialize() {
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "GreenRibbon");
         localStorage.setItem(currentGroup + '_GreenRibbon_Name', greenRibbonInputText.value);
+
+        initialize_second_try_flags();
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -654,6 +702,8 @@ function initialize() {
         localStorage.setItem('CurrentSymbol', "PurpleRibbon");
         localStorage.setItem(currentGroup + '_PurpleRibbon_Name', purpleRibbonInputText.value);
 
+        initialize_second_try_flags();
+
         // Navigate
         window.location.href = "../red_activity1/red.html";
     }
@@ -689,6 +739,8 @@ function initialize() {
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "YellowRibbon");
         localStorage.setItem(currentGroup + '_YellowRibbon_Name', yellowRibbonInputText.value);
+
+        initialize_second_try_flags();
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -726,6 +778,8 @@ function initialize() {
         localStorage.setItem('CurrentSymbol', "RedStar");
         localStorage.setItem(currentGroup + '_RedStar_Name', redStarInputText.value);
 
+        initialize_second_try_flags();
+
         // Navigate
         window.location.href = "../red_activity1/red.html";
     }
@@ -761,6 +815,8 @@ function initialize() {
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "GreenStar");
         localStorage.setItem(currentGroup + '_GreenStar_Name', greenStarInputText.value);
+
+        initialize_second_try_flags();
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -798,6 +854,8 @@ function initialize() {
         localStorage.setItem('CurrentSymbol', "PurpleStar");
         localStorage.setItem(currentGroup + '_PurpleStar_Name', purpleStarInputText.value);
 
+        initialize_second_try_flags();
+
         // Navigate
         window.location.href = "../red_activity1/red.html";
     }
@@ -833,6 +891,8 @@ function initialize() {
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "RedWave");
         localStorage.setItem(currentGroup + '_RedWave_Name', redWaveInputText.value);
+
+        initialize_second_try_flags();
 
         // Navigate
         window.location.href = "../red_activity1/red.html";
@@ -870,6 +930,8 @@ function initialize() {
         localStorage.setItem('CurrentSymbol', "BlueCircle");
         localStorage.setItem(currentGroup + '_BlueCircle_Name', blueCircleInputText.value);
 
+        initialize_second_try_flags();
+
         // Navigate
         window.location.href = "../red_activity1/red.html";
     }
@@ -905,6 +967,8 @@ function initialize() {
         // Save in local storage
         localStorage.setItem('CurrentSymbol', "RedCircle");
         localStorage.setItem(currentGroup + '_RedCircle_Name', redCircleInputText.value);
+
+        initialize_second_try_flags();
 
         // Navigate
         window.location.href = "../red_activity1/red.html";

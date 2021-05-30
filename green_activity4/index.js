@@ -44,8 +44,9 @@ function click_semafor(culoare) {
 }
 
 function wrong_answer() {
+    let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
-    let isAtSecondTry = localStorage.getItem(currentSymbol + '_Activity3_isAtSecondTry');
+    let isAtSecondTry = localStorage.getItem(currentGroup+ '_' + currentSymbol + '_Activity3_isAtSecondTry');
     document.getElementById("sound").style.display = "block";
     disable_images();
 
@@ -62,12 +63,12 @@ function wrong_answer() {
 
             if (incercari === 3) {
                 // 0 puncte, activitatea va fi reluata la final
-                localStorage.setItem(currentSymbol + '_Activity4', '0');
-                localStorage.setItem(currentSymbol + '_Activity4_isAtSecondTry', "true");
+                localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity4', '0');
+                localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity4_isAtSecondTry', "true");
 
                 window.location.href = "../blue_activity5/index.html";
             } else {
-                localStorage.setItem(currentSymbol + '_Activity4_isAtSecondTry', "false");
+                localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity4_isAtSecondTry', "false");
                 document.getElementById("sound").style.display = "none";
                 enable_images();
             }
@@ -76,8 +77,9 @@ function wrong_answer() {
 }
 
 function right_answer() {
+    let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
-    let isAtSecondTry = localStorage.getItem(currentSymbol + '_Activity4_isAtSecondTry');
+    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity4_isAtSecondTry');
 
     document.getElementById("sound").style.display = "block";
     disable_images();
@@ -87,9 +89,9 @@ function right_answer() {
     audio3.play().then(function() {
 
         if (isAtSecondTry === "true")
-            localStorage.setItem(currentSymbol + '_Activity4', '5');
+            localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity4', '5');
         else
-            localStorage.setItem(currentSymbol + '_Activity4', '9');
+            localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity4', '9');
 
         setTimeout(function() {
             window.location.href = "../blue_activity5/index.html";

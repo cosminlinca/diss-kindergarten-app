@@ -39,8 +39,9 @@ function click_image(image, image_id) {
         document.getElementById("sound").style.display = "block";
         disable_images();
 
+        let currentGroup = localStorage.getItem('CurrentGroup');
         let currentSymbol = localStorage.getItem('CurrentSymbol');
-        let isAtSecondTry = localStorage.getItem(currentSymbol + '_Activity3_isAtSecondTry');
+        let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity3_isAtSecondTry');
 
         // check right order
         if (selected[0] === 1 && selected[1] === 2 && selected[2] === 3) {
@@ -50,10 +51,10 @@ function click_image(image, image_id) {
 
                 if (isAtSecondTry === "true")
                 // Second try => 5 points
-                    localStorage.setItem(currentSymbol + '_Activity3', '5');
+                    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity3', '5');
                 else
                 // First try => 9 points
-                    localStorage.setItem(currentSymbol + '_Activity3', '9');
+                    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity3', '9');
 
                 setTimeout(function() {
                     window.location.href = "../green_activity4/index.html";
@@ -78,8 +79,8 @@ function click_image(image, image_id) {
 
                     if (incercari === 3) {
                         // 0 puncte, activitatea va fi reluata la final
-                        localStorage.setItem(currentSymbol + '_Activity3', '0');
-                        localStorage.setItem(currentSymbol + '_Activity3_isAtSecondTry', "true");
+                        localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity3', '0');
+                        localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity3_isAtSecondTry', "true");
 
                         window.location.href = "../green_activity4/index.html";
                     } else {
