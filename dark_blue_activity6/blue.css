@@ -1,0 +1,241 @@
+body {
+    background: url('background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#sound {
+    top: 120;
+    right: -100;
+    position: fixed;
+    margin: 8px;
+}
+
+#sound img {
+    width: 40%;
+    height: auto;
+}
+
+#barometer_pencil {
+    bottom: 550;
+    left: 0;
+    position: fixed;
+    width: 25%;
+    height: 25%;
+}
+
+#barometer_pencil img {
+    width: 50%;
+    height: auto;
+}
+
+#blue_pencil {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    margin: 8px;
+}
+
+#blue_pencil img {
+    width: 120px;
+    margin-right: 24px;
+    height: auto;
+}
+
+
+#crayon1 {
+    top: 0;
+    right: 400;
+    position: fixed;
+    margin: 8px;
+}
+
+
+#crayon2 {
+    top: 0;
+    right: 330;
+    position: fixed;
+    margin: 8px;
+}
+
+
+#crayon3 {
+    top: 0;
+    right: 260;
+    position: fixed;
+    margin: 8px;
+}
+
+
+#crayon4 {
+    top: 0;
+    right: 190;
+    position: fixed;
+    margin: 8px;
+}
+
+
+#crayon5 {
+    top: 0;
+    right: 120;
+    position: fixed;
+    margin: 8px;
+}
+
+
+#crayon6 {
+    top: 0;
+    right: 50;
+    position: fixed;
+    margin: 8px;
+}
+
+
+#crayon7 {
+    bottom: 330;
+    right: 0;
+    position: fixed;
+    margin: 8px;
+}
+
+
+#crayon8 {
+    bottom: 400;
+    right: 0;
+    position: fixed;
+    margin: 8px;
+}
+
+
+#crayon9 {
+    bottom: 470;
+    right: 0;
+    position: fixed;
+    margin: 8px;
+}
+
+
+#crayon10 {
+    bottom: 540;
+    right: 0;
+    position: fixed;
+    margin: 8px;
+}
+
+
+#crayon11 {
+    bottom: 610;
+    right: 0;
+    position: fixed;
+    margin: 8px;
+}
+
+
+#bigSquare1 {
+    bottom: 610;
+    left: 240;
+    margin-bottom: 1610;
+    margin-left: 1250;
+    position: fixed;
+    margin: 8px;
+}
+
+#bigSquare2 {
+    bottom: 210;
+    left: 650;
+    position: fixed;
+    margin: 8px;
+}
+
+#bigCercle1 {
+    bottom: 410;
+    left: 450;
+    position: fixed;
+    margin: 8px;
+}
+
+#bigCercle2 {
+    bottom: 270;
+    left: 230;
+    position: fixed;
+    margin: 8px;
+}
+
+#smallCercle1 {
+    bottom: 410;
+    left: 650;
+    position: fixed;
+    margin: 8px;
+}
+
+#smallCercle2 {
+    bottom: 270;
+    left: 430;
+    position: fixed;
+    margin: 8px;
+}
+
+#smallCercle3 {
+    bottom: 610;
+    left: 550;
+    position: fixed;
+    margin: 8px;
+}
+
+#smallCercle4 {
+    bottom: 440;
+    left: 230;
+    position: fixed;
+    margin: 8px;
+}
+
+#smallTriangle1 {
+    bottom: 390;
+    left: 400;
+    position: fixed;
+    margin: 8px;
+}
+
+#smallTriangle2 {
+    bottom: 170;
+    left: 400;
+    position: fixed;
+    margin: 8px;
+}
+
+#smallTriangle3 {
+    bottom: 580;
+    left: 700;
+    position: fixed;
+    margin: 8px;
+}
+
+#smallTriangle4 {
+    bottom: 500;
+    left: 280;
+    position: fixed;
+    margin: 8px;
+}
+
+#smallSquare1 {
+    bottom: 540;
+    left: 400;
+    position: fixed;
+    margin: 8px;
+}
+
+#smallSquare2 {
+    bottom: 330;
+    left: 600;
+    position: fixed;
+    margin: 8px;
+}
+
+#smallSquare3 {
+    bottom: 500;
+    left: 620;
+    position: fixed;
+    margin: 8px;
+}
