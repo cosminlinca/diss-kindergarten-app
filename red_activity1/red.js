@@ -17,7 +17,7 @@ function initialize() {
 
     document.getElementById("sound").style.display = "block";
 
-    let audio = new Audio('recording_test.mp3');
+    let audio = new Audio('red_activity_initialize.mp3');
     audio.muted = true;
     audio.play().then(function() {
         audio.muted = false;
@@ -27,7 +27,7 @@ function initialize() {
             document.getElementById("cifra2").style.pointerEvents = "auto";
             document.getElementById("cifra3").style.pointerEvents = "auto";
             document.getElementById("cifra4").style.pointerEvents = "auto";
-        }, 5500);
+        }, 12000);
     });
 }
 
@@ -58,7 +58,7 @@ function wrong_answer() {
     document.getElementById("sound").style.display = "block";
     disable_images();
 
-    let audio = new Audio('../green_activity4/activity4_try_again.m4a');
+    let audio = new Audio('red_activity_wrongAnswer.mp3');
     audio.play().then(function() {
 
         setTimeout(function() {
@@ -80,7 +80,7 @@ function wrong_answer() {
                 document.getElementById("sound").style.display = "none";
                 enable_images();
             }
-        }, 6000);
+        }, 8000);
     });
 
     // // TODO: mesaj audio: numarul de girafe nu este corect
@@ -105,7 +105,7 @@ function right_answer() {
 
     // TODO: mesaj audio: felicitari, numarul de girafe este corect
     // ai completat activitatea, prin urmare creionul barometru s-a completat cu culoarea rosie
-    let audio3 = new Audio('bravo-Cori.mp3');
+    let audio3 = new Audio('red_activity_final.mp3');
     audio3.play().then(function() {
         let currentGroup = localStorage.getItem('CurrentGroup');
         let currentSymbol = localStorage.getItem('CurrentSymbol');
@@ -120,6 +120,6 @@ function right_answer() {
 
         setTimeout(function() {
             window.location.href = "../orange_activity2/index.html";
-        }, 3000);
+        }, 7000);
     });
 }
