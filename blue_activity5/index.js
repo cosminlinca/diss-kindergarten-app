@@ -60,7 +60,7 @@ function onAnimalClick(id) {
     if (id === 'dog') {
         document.getElementById('barometru').src = 'ROGVA.png';
         let audio = new Audio('success.mp4');
-        audio.play().then(function() {
+        audio.play().then(function () {
 
             if (isAtSecondTry === "true")
             // Second try => 5 points
@@ -69,8 +69,8 @@ function onAnimalClick(id) {
             // First try => 9 points
                 localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5', '9');
 
-            setTimeout(function(){
-                window.location.href = "../indigo_activity6/index.html";
+            setTimeout(function () {
+                window.location.href = "../dark_blue_activity6/index.html";
             }, 2000);
         });
     } else {
@@ -90,11 +90,11 @@ function onAnimalClick(id) {
 
             audio.play().then(function () {
                 setTimeout(function () {
-                    window.location.href = "../indigo_activity6/index.html";
+                    window.location.href = "../dark_blue_activity6/index.html";
                 }, 4500);
             });
 
-        } else{
+        } else {
             let audio = new Audio('wrong.mp4');
             audio.play().then(function () {
                 setTimeout(function () {
