@@ -1,5 +1,23 @@
 let trials = 0;
 
+function disable_elements() {
+    document.getElementById("cow").style.pointerEvents = "none";
+    document.getElementById("dog").style.pointerEvents = "none";
+    document.getElementById("rooster").style.pointerEvents = "none";
+    document.getElementById("sound_cow").style.pointerEvents = "none";
+    document.getElementById("sound_dog").style.pointerEvents = "none";
+    document.getElementById("sound_rooster").style.pointerEvents = "none";
+}
+
+function enable_elements() {
+    document.getElementById("cow").style.pointerEvents = "auto";
+    document.getElementById("dog").style.pointerEvents = "auto";
+    document.getElementById("rooster").style.pointerEvents = "auto";
+    document.getElementById("sound_cow").style.pointerEvents = "auto";
+    document.getElementById("sound_dog").style.pointerEvents = "auto";
+    document.getElementById("sound_rooster").style.pointerEvents = "auto";
+}
+
 function playCowSound() {
     let cowSound = new Audio('cow_sound.mp3');
     cowSound.play();
@@ -15,29 +33,74 @@ function playWrongSound() {
     catSound.play();
 }
 
+function initialize() {
+    disable_elements();
+    document.getElementById("voice-sound").style.display = "block";
+
+    let audio = new Audio('story.mp4');
+    audio.muted = true;
+    audio.play().then(function () {
+        audio.muted = false;
+        setTimeout(function () {
+            document.getElementById("voice-sound").style.display = "none";
+            enable_elements();
+        }, 29500);
+    });
+}
+
 function onAnimalClick(id) {
     trials += 1;
-    // TODO: block page elements while audio is playing in both cases
+    document.getElementById("voice-sound").style.display = "block";
+    disable_elements();
+
+    let currentGroup = localStorage.getItem('CurrentGroup');
+    let currentSymbol = localStorage.getItem('CurrentSymbol');
+    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity5_isAtSecondTry');
 
     if (id === 'dog') {
         document.getElementById('barometru').src = 'ROGVA.png';
-        // TODO: mesaj audio succes
-        let audio = new Audio('.mp3');
+        let audio = new Audio('success.mp4');
         audio.play().then(function() {
-            let currentSymbol = localStorage.getItem('CurrentSymbol');
-            // set number of points for this activity
-            localStorage.setItem(currentSymbol + '_Activity5', '2');
-            window.location.href = "../indigo_activity6/index.html";
+
+            if (isAtSecondTry === "true")
+            // Second try => 5 points
+                localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5', '5');
+            else
+            // First try => 9 points
+                localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5', '9');
+
+            setTimeout(function(){
+                window.location.href = "../indigo_activity6/index.html";
+            }, 2000);
         });
     } else {
         if (trials >= 3) {
-            // TODO: mesaj audio negativ
-            let audio = new Audio('.mp3');
-            audio.play().then(function() {
-                let currentSymbol = localStorage.getItem('CurrentSymbol');
-                // 0 puncte, activitatea va fi reluata la final
-                localStorage.setItem(currentSymbol + '_Activity5', '0');
-                window.location.href = "../indigo_activity6/index.html";
+            trial = 0;
+
+            let audio;
+            console.log(isAtSecondTry);
+            // if (isAtSecondTry === "true") {
+            //     //TODO audio for last trial in case of wrong -> 0 points
+            //     audio = new Audio();
+            // } else {
+            audio = new Audio('try_again_later.mp4');
+            localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5', '0');
+            localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5_isAtSecondTry', "true");
+            // }
+
+            audio.play().then(function () {
+                setTimeout(function () {
+                    window.location.href = "../indigo_activity6/index.html";
+                }, 4500);
+            });
+
+        } else{
+            let audio = new Audio('wrong.mp4');
+            audio.play().then(function () {
+                setTimeout(function () {
+                    document.getElementById("voice-sound").style.display = "none";
+                    enable_elements();
+                }, 3000);
             });
         }
     }

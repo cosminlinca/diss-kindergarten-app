@@ -3,6 +3,35 @@ body {
     background-size: 100% 100vh;
 }
 
+#tree:hover{
+    transform: scale(1.1);
+}
+
+#giraffe:hover{
+    transform: scale(1.1);
+}
+
+#monkey:hover{
+    transform: scale(1.1);
+}
+
+#bunny:hover{
+    transform: scale(1.1);
+}
+
+#easter-eggs:hover{
+    transform: scale(1.1);
+}
+
+#sound {
+    top: 0;
+    right: 0;
+    position: fixed;
+    width: 10%;
+    height: 10%;
+    display: none;
+}
+
 #orange_pencil {
     bottom: 0;
     right: 0;

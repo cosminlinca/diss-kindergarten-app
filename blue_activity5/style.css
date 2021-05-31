@@ -3,6 +3,27 @@ body {
     background-size: 100% 100vh;
 }
 
+#rooster:hover{
+    transform: scale(1.1);
+}
+
+#cow:hover{
+    transform: scale(1.1);
+}
+
+#dog:hover{
+    transform: scale(1.1);
+}
+
+#voice-sound {
+    top: 0;
+    right: 0;
+    position: fixed;
+    width: 10%;
+    height: 10%;
+    display: none;
+}
+
 #blue_pencil {
     bottom: 2%;
     right: 3%;
