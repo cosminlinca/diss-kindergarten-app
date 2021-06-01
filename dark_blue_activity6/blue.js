@@ -1,7 +1,21 @@
 var selectedCrayon = '';
 var incercari = 0;
 
+function check_activity_skip()
+{
+    let currentGroup = localStorage.getItem('CurrentGroup');
+    let currentSymbol = localStorage.getItem('CurrentSymbol');
+    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity6_isAtSecondTry');
+    let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity6');
+
+    if (isAtSecondTry === "true" && points !== '0')
+        window.location.href = "../violet_activity7/index.html";
+}
+
 function intro() {
+
+    check_activity_skip();
+
     document.getElementById("sound").style.display = "block";
     var audio = new Audio('intro.mp3');
     audio.muted = true;

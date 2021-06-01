@@ -16,8 +16,20 @@ function enable_images() {
     document.getElementById("easter-eggs").style.pointerEvents = "auto";
 }
 
+function check_activity_skip()
+{
+    let currentGroup = localStorage.getItem('CurrentGroup');
+    let currentSymbol = localStorage.getItem('CurrentSymbol');
+    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity2_isAtSecondTry');
+    let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity2');
+
+    if (isAtSecondTry === "true" && points !== '0')
+        window.location.href = "../yellow_activity3/index.html";
+}
 
 function initialize() {
+    check_activity_skip();
+
     disable_images();
     document.getElementById("sound").style.display = "block";
 
