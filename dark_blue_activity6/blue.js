@@ -265,7 +265,7 @@ function wrong_answer() {
                 }, 6000);
             });
             audio.onended = function() {
-                window.location.href = "../red_activity1/red.html";              
+                window.location.href = "../violet_activity7/index.html";              
             }
         }
     } else {
@@ -299,7 +299,7 @@ function rightAnswer() {
         }
 
         setTimeout(function() {
-            window.location.href = "../red_activity1/red.html";
+            window.location.href = "../violet_activity7/index.html";
         }, 3000);
     });
 }
