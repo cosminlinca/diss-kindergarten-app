@@ -16,15 +16,14 @@ function initialize() {
     document.getElementById("sound").style.display = "block";
     disable_images();
 
-    let audio = new Audio('../red_activity1/recording_test.mp3');
+    let audio = new Audio('./alege_grupa.m4a');
     audio.play().then(function() {
 
         setTimeout(function() {
             document.getElementById("sound").style.display = "none";
             enable_images();
 
-            // TODO: Replace timeout value with recording duration
-        }, 5500);
+        }, 20000);
     });
 }
 

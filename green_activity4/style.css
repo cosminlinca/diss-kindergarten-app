@@ -33,9 +33,17 @@ body {
     height: auto;
 }
 
-#patrol {
+.patrol-left {
     bottom: 50px;
     left: 0;
+    position: fixed;
+    width: 40%;
+    height: 40%;
+}
+
+.patrol-right {
+    right: -50px;
+    bottom: 50px;
     position: fixed;
     width: 40%;
     height: 40%;
@@ -62,7 +70,7 @@ body {
 #semafoare {
     width: 50%;
     height: 60%;
-    top: 25%;
+    top: 15%;
     position: fixed;
     left: 30%;
     display: flex;

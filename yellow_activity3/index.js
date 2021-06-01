@@ -61,7 +61,20 @@ function click_image(image, image_id) {
                 }, 3000);
             });
         } else {
-            let audio = new Audio('./activity3_try_again.m4a');
+            incercari++;
+
+            let audio_name, timeout;
+
+            if (isAtSecondTry === "true" || incercari === 3 )
+            {
+                audio_name = './final_try.m4a';
+                timeout = 7500;
+            } else {
+                audio_name = './activity3_try_again.m4a';
+                timeout = 3000;
+            }
+
+            let audio = new Audio(audio_name);
             audio.play().then(function() {
                 setTimeout(function() {
                     // Empty image selection
@@ -70,7 +83,6 @@ function click_image(image, image_id) {
                     for (let i = 0; i < images.length; i++) {
                         images[i].classList.remove('image-click');
                     }
-                    incercari++;
 
                     if (isAtSecondTry === "true") {
                         // if it is wrong also at the final attempt just go to next activity
@@ -87,7 +99,7 @@ function click_image(image, image_id) {
                         document.getElementById("sound").style.display = "none";
                         enable_images();
                     }
-                }, 3000);
+                }, timeout);
             });
         }
     }

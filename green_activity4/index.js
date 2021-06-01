@@ -50,11 +50,22 @@ function wrong_answer() {
     document.getElementById("sound").style.display = "block";
     disable_images();
 
-    let audio = new Audio('./activity4_try_again.m4a');
+    incercari++;
+
+    let audio_name, timeout;
+
+    if (isAtSecondTry === "true" || incercari === 3 )
+    {
+        audio_name = './final_try.m4a';
+        timeout = 7500;
+    } else {
+        audio_name = './activity4_try_again.m4a';
+        timeout = 6000;
+    }
+    let audio = new Audio(audio_name);
     audio.play().then(function() {
 
         setTimeout(function() {
-            incercari++;
 
             if (isAtSecondTry === "true") {
                 // if it is wrong also at the final attempt just go to next activity
@@ -72,7 +83,7 @@ function wrong_answer() {
                 document.getElementById("sound").style.display = "none";
                 enable_images();
             }
-        }, 6000);
+        }, timeout);
     });
 }
 
@@ -84,6 +95,10 @@ function right_answer() {
     document.getElementById("sound").style.display = "block";
     disable_images();
     document.getElementById('barometru').src = 'ROGV.png';
+
+    let patrol = document.getElementById('patrol');
+    patrol.classList = [];
+    patrol.classList.add('patrol-right');
 
     let audio3 = new Audio('./activity4_success.m4a');
     audio3.play().then(function() {
