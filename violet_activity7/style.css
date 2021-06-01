@@ -1,0 +1,84 @@
+body {
+    background: url('background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#barometer_pencil {
+    top: 0;
+    left:0;
+    position: fixed;
+    width: 40%;
+    height: 40%;
+}
+
+#barometer_pencil img {
+    width: 60%;
+    height: auto;
+}
+
+
+#purple_pencil {
+    bottom: 0;
+    right: 0;
+    position: fixed;
+    margin: 8px;
+}
+
+#purple_pencil img {
+    width: 250px;
+    margin-right: 24px;
+    height: auto;
+}
+
+#meserii {
+    width: 80%;
+    height: 60%;
+    top: 6%;
+    position: fixed;
+    left: 25%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.job{
+    width: 210px;
+    height: 210px;
+	border-style: outset;
+	transform: rotate(-10deg);
+	border-color: purple;
+    padding: 10px;
+    margin: 10px;
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+	float: left;
+}
+
+#meserii1 {
+    width: 80%;
+    height: 60%;
+    top: 53%;
+    position: fixed;
+    left: 25%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.job1{
+    width: 250px;
+    height: 210px;
+	border-style:outset ;
+	border-color: purple;
+	transform: rotate(-10deg);
+    padding: 10px;
+    margin-left: 160px;
+    overflow: hidden;
+    align-items: center;
+    display: flex;
+    cursor: pointer;
+	float: left;
+}
