@@ -82,3 +82,11 @@ body {
     cursor: pointer;
 	float: left;
 }
+
+.job:hover{
+    transform: scale(1.1);
+}
+
+.job1:hover{
+    transform: scale(1.1);
+}
