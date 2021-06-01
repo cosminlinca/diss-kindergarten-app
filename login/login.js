@@ -1,5 +1,4 @@
-function initialize_second_try_flags()
-{
+function initialize_second_try_flags() {
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
 
@@ -16,15 +15,14 @@ function initialize() {
     document.getElementById("sound").style.display = "block";
     // disable_images();
 
-    let audio = new Audio('../red_activity1/recording_test.mp3');
+    let audio = new Audio('symbol_initialize.mp3');
     audio.play().then(function() {
 
         setTimeout(function() {
             document.getElementById("sound").style.display = "none";
             // enable_images();
 
-            // TODO: Replace timeout value with recording duration
-        }, 5500);
+        }, 30000);
     });
 
 

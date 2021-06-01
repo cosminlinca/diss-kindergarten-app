@@ -58,11 +58,22 @@ function wrong_answer() {
     document.getElementById("sound").style.display = "block";
     disable_images();
 
-    let audio = new Audio('red_activity_wrongAnswer.mp3');
+    incercari++;
+
+    let audio_name, timeout;
+
+    if (isAtSecondTry === "true" || incercari === 3) {
+        audio_name = 'red_activity_wrong_final.mp3';
+        timeout = 7500;
+    } else {
+        audio_name = 'red_activity_wrongAnswer.mp3';
+        timeout = 8000;
+    }
+
+    let audio = new Audio(audio_name);
     audio.play().then(function() {
 
         setTimeout(function() {
-            incercari++;
 
             if (isAtSecondTry === "true") {
                 // if it is wrong also at the final attempt just go to next activity
@@ -80,31 +91,15 @@ function wrong_answer() {
                 document.getElementById("sound").style.display = "none";
                 enable_images();
             }
-        }, 8000);
+        }, timeout);
     });
-
-    // // TODO: mesaj audio: numarul de girafe nu este corect
-    // let audio = new Audio('mai-incearca-Cori.mp3');
-    // audio.play().then(function() {
-    //     incercari++;
-    //     if (incercari == 3) {
-    //         // TODO: mesaj audio: din pacate nu ai raspuns corect, vom reveni mai tarziu
-    //         let audio = new Audio('mai-incearca-Cori.mp3');
-    //         audio.play().then(function() {
-
-    //             // 0 puncte, activitatea va fi reluata la final
-    //             localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity1', '0');
-    //             window.location.href = "../orange_activity2/index.html"
-    //         });
-    //     }
-    // });
 }
 
 function right_answer() {
     document.getElementById('barometer_pencil_img').src = 'red_pencil_removedback_1.png';
 
-    // TODO: mesaj audio: felicitari, numarul de girafe este corect
-    // ai completat activitatea, prin urmare creionul barometru s-a completat cu culoarea rosie
+    document.getElementById("sound").style.display = "block";
+
     let audio3 = new Audio('red_activity_final.mp3');
     audio3.play().then(function() {
         let currentGroup = localStorage.getItem('CurrentGroup');

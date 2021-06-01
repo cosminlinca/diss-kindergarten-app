@@ -46,7 +46,7 @@ function click_semafor(culoare) {
 function wrong_answer() {
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
-    let isAtSecondTry = localStorage.getItem(currentGroup+ '_' + currentSymbol + '_Activity3_isAtSecondTry');
+    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity3_isAtSecondTry');
     document.getElementById("sound").style.display = "block";
     disable_images();
 
@@ -54,8 +54,7 @@ function wrong_answer() {
 
     let audio_name, timeout;
 
-    if (isAtSecondTry === "true" || incercari === 3 )
-    {
+    if (isAtSecondTry === "true" || incercari === 3) {
         audio_name = './final_try.m4a';
         timeout = 7500;
     } else {
