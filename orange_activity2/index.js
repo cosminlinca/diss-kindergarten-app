@@ -59,35 +59,40 @@ function click_image(imageId) {
             }, 7000);
         });
     } else {
-        if (trial >= 3) {
-            trial = 0;
 
-            let audio;
-            console.log(isAtSecondTry);
-            // if (isAtSecondTry === "true") {
-            //     //TODO audio for last trial in case of wrong -> 0 points
-            //     audio = new Audio();
-            // } else {
-            audio = new Audio('try_again_later.mp4');
-            localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity2', '0');
-            localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity2_isAtSecondTry', "true");
-            // }
-
+        if (isAtSecondTry === "true") {
+            let audio = new Audio('last_trial.mp4');
             audio.play().then(function () {
                 setTimeout(function () {
                     window.location.href = "../yellow_activity3/index.html";
                 }, 4500);
             });
-
         } else {
-            let audio = new Audio('wrong_answer.mp4');
-            audio.play().then(function () {
-                setTimeout(function () {
-                    document.getElementById("sound").style.display = "none";
-                    enable_images();
-                }, 3000);
-            });
+
+            if (trial >= 3) {
+                trial = 0;
+
+                let audio = new Audio('try_again_later.mp4');
+                localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity2', '0');
+                localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity2_isAtSecondTry', "true");
+
+                audio.play().then(function () {
+                    setTimeout(function () {
+                        window.location.href = "../yellow_activity3/index.html";
+                    }, 4500);
+                });
+
+            } else {
+                let audio = new Audio('wrong_answer.mp4');
+                audio.play().then(function () {
+                    setTimeout(function () {
+                        document.getElementById("sound").style.display = "none";
+                        enable_images();
+                    }, 3000);
+                });
+            }
         }
+
 
     }
 

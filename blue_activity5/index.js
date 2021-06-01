@@ -74,34 +74,37 @@ function onAnimalClick(id) {
             }, 2000);
         });
     } else {
-        if (trials >= 3) {
-            trial = 0;
 
-            let audio;
-            console.log(isAtSecondTry);
-            // if (isAtSecondTry === "true") {
-            //     //TODO audio for last trial in case of wrong -> 0 points
-            //     audio = new Audio();
-            // } else {
-            audio = new Audio('try_again_later.mp4');
-            localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5', '0');
-            localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5_isAtSecondTry', "true");
-            // }
-
+        if (isAtSecondTry === "true") {
+            let audio = new Audio('last_trial.mp4');
             audio.play().then(function () {
                 setTimeout(function () {
                     window.location.href = "../dark_blue_activity6/index.html";
                 }, 4500);
             });
-
         } else {
-            let audio = new Audio('wrong.mp4');
-            audio.play().then(function () {
-                setTimeout(function () {
-                    document.getElementById("voice-sound").style.display = "none";
-                    enable_elements();
-                }, 3000);
-            });
+            if (trials >= 3) {
+                trial = 0;
+
+                let audio = new Audio('try_again_later.mp4');
+                localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5', '0');
+                localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5_isAtSecondTry', "true");
+
+                audio.play().then(function () {
+                    setTimeout(function () {
+                        window.location.href = "../dark_blue_activity6/index.html";
+                    }, 4500);
+                });
+
+            } else {
+                let audio = new Audio('wrong.mp4');
+                audio.play().then(function () {
+                    setTimeout(function () {
+                        document.getElementById("voice-sound").style.display = "none";
+                        enable_elements();
+                    }, 3000);
+                });
+            }
         }
     }
 }
