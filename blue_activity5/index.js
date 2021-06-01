@@ -18,6 +18,17 @@ function enable_elements() {
     document.getElementById("sound_rooster").style.pointerEvents = "auto";
 }
 
+function check_activity_skip()
+{
+    let currentGroup = localStorage.getItem('CurrentGroup');
+    let currentSymbol = localStorage.getItem('CurrentSymbol');
+    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity5_isAtSecondTry');
+    let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity5');
+
+    if (isAtSecondTry === "true" && points !== '0')
+        window.location.href = "../dark_blue_activity6/index.html";
+}
+
 function playCowSound() {
     let cowSound = new Audio('cow_sound.mp3');
     cowSound.play();
@@ -34,6 +45,8 @@ function playWrongSound() {
 }
 
 function initialize() {
+    check_activity_skip();
+
     disable_elements();
     document.getElementById("voice-sound").style.display = "block";
 

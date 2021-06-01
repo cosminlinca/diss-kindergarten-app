@@ -13,7 +13,20 @@ function enable_images() {
     document.getElementById("doctor").style.pointerEvents = "auto";
 }
 
+function check_activity_skip()
+{
+    let currentGroup = localStorage.getItem('CurrentGroup');
+    let currentSymbol = localStorage.getItem('CurrentSymbol');
+    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity7_isAtSecondTry');
+    let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity7');
+
+    if (isAtSecondTry === "true" && points !== '0')
+        window.location.href = "../final/index.html";
+}
+
 function initialize() {
+    check_activity_skip();
+
     document.getElementById("sound").style.display = "block";
     disable_images();
 
@@ -101,42 +114,40 @@ function wrong_answer() {
     audio.play().then(function() {
 
         setTimeout(function() {
-           
 
             if (isAtSecondTry === "true") {
                 // if it is wrong also at the final attempt just go to next activity
 				disable_images()
 				let audio1 = new Audio('./audio7.m4a');
-    audio1.play().then(function() {
+                audio1.play().then(function() {
 
-        setTimeout(function() {
-            document.getElementById("sound").style.display = "none";
-			  window.location.href = "../red_activity1/red.html";
-        }, 7000);
-    });
+                    setTimeout(function() {
+                        document.getElementById("sound").style.display = "none";
+                        window.location.href = "../final/index.html";
+                    }, 7000);
+                });
               
             }
 
             if (incercari === 3) {
 				disable_images()
 				let audio1 = new Audio('./audio7.m4a');
-    audio1.play().then(function() {
+                audio1.play().then(function() {
 
-        setTimeout(function() {
-            
-			 localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7', '0');
-                localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7_isAtSecondTry', "true");
+                    setTimeout(function() {
 
-                window.location.href = "../red_activity1/red.html";
-				document.getElementById("sound").style.display = "none";
-        }, 7000);
-    });
-                // 0 puncte, activitatea va fi reluata la final
+                         localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7', '0');
+                         localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7_isAtSecondTry', "true");
+
+                         window.location.href = "../red_activity1/red.html";
+                         document.getElementById("sound").style.display = "none";
+                    }, 7000);
+                });
                
             } else {
                 localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7_isAtSecondTry', "false");
                 enable_images();
-				 document.getElementById("sound").style.display = "none";
+                document.getElementById("sound").style.display = "none";
             }
         }, 1000);
     });
@@ -154,53 +165,53 @@ function right_answer() {
 	if (activitati == 1 )
 	{
 		activitati = 2;
-		    document.getElementById("sound").style.display = "block";
-    disable_images();
+		document.getElementById("sound").style.display = "block";
+        disable_images();
 
-    let audio = new Audio('./audio5.m4a');
-    audio.play().then(function() {
+        let audio = new Audio('./audio5.m4a');
+        audio.play().then(function() {
 
-        setTimeout(function() {
-			 let audio1 = new Audio('./audio3.m4a');
-    audio1.play().then(function() {
+            setTimeout(function() {
+                 let audio1 = new Audio('./audio3.m4a');
+        audio1.play().then(function() {
 
-        setTimeout(function() {
-            document.getElementById("sound").style.display = "none";
-            enable_images();
+            setTimeout(function() {
+                document.getElementById("sound").style.display = "none";
+                enable_images();
 
-        }, 4000);
-    });
-            document.getElementById("sound").style.display = "none";
-            enable_images();
+            }, 4000);
+        });
+                document.getElementById("sound").style.display = "none";
+                enable_images();
 
-        }, 4000);
-    });
+            }, 4000);
+        });
 		
 	}
 	else if (activitati == 2 )
 	{
 		activitati = 3;
-		    document.getElementById("sound").style.display = "block";
-    disable_images();
+		document.getElementById("sound").style.display = "block";
+        disable_images();
 
-       let audio = new Audio('./audio5.m4a');
-    audio.play().then(function() {
+           let audio = new Audio('./audio5.m4a');
+            audio.play().then(function() {
 
-        setTimeout(function() {
-			 let audio1 = new Audio('./audio4.m4a');
-    audio1.play().then(function() {
+                setTimeout(function() {
+                     let audio1 = new Audio('./audio4.m4a');
+                    audio1.play().then(function() {
 
-        setTimeout(function() {
-            document.getElementById("sound").style.display = "none";
-            enable_images();
+                        setTimeout(function() {
+                            document.getElementById("sound").style.display = "none";
+                            enable_images();
 
-        }, 4000);
-    });
-            document.getElementById("sound").style.display = "none";
-            enable_images();
+                        }, 4000);
+                    });
+                    document.getElementById("sound").style.display = "none";
+                    enable_images();
 
-        }, 4000);
-    });
+            }, 4000);
+        });
 	}
 	else {
     let audio3 = new Audio('./audio5.m4a');
@@ -212,7 +223,10 @@ function right_answer() {
             localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7', '9');
 
         setTimeout(function() {
-            window.location.href = "../red_activity1/red.html";
+            if(isAtSecondTry === "true")
+                window.location.href = "../final/index.html";
+            else
+                window.location.href = "../red_activity1/red.html";
         }, 4000);
     });
 	}

@@ -10,7 +10,20 @@ function enable_images() {
     document.getElementById("cifra4").style.pointerEvents = "auto";
 }
 
+function check_activity_skip()
+{
+    let currentGroup = localStorage.getItem('CurrentGroup');
+    let currentSymbol = localStorage.getItem('CurrentSymbol');
+    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity1_isAtSecondTry');
+    let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity1');
+
+    if (isAtSecondTry === "true" && points !== '0')
+        window.location.href = "../orange_activity2/index.html";
+}
+
 function initialize() {
+    check_activity_skip();
+
     document.getElementById("cifra2").style.pointerEvents = "none";
     document.getElementById("cifra3").style.pointerEvents = "none";
     document.getElementById("cifra4").style.pointerEvents = "none";
