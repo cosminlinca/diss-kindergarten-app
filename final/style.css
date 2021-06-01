@@ -1,10 +1,24 @@
 body {
-    background-color: bisque;
-    /*background: url('felicitari.PNG') no-repeat center center fixed;*/
-    /*-webkit-background-size: cover;*/
-    /*-moz-background-size: cover;*/
-    /*-o-background-size: cover;*/
-    /*background-size: cover;*/
+    background: url('curcubeu.PNG') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-color: rgba(255,255,255,0.6);
+    background-blend-mode: lighten;
+}
+
+#barometer_pencil {
+    bottom: 50px;
+    left: 90px;
+    position: fixed;
+    width: 40%;
+    height: 40%;
+}
+
+#barometer_pencil img {
+    width: 60%;
+    height: auto;
 }
 
 
@@ -40,4 +54,8 @@ body {
     color: darkblue;
     cursor: pointer;
     border-radius: 20px;
+}
+
+button:hover{
+    transform: scale(1.1);
 }

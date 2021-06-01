@@ -87,3 +87,7 @@ body {
     display: flex;
     cursor: pointer;
 }
+
+.semafor:hover{
+    transform: scale(1.1);
+}

@@ -106,5 +106,5 @@ function click_image(image, image_id) {
 }
 
 function handle_image_click(image) {
-    image.parentElement.classList.add('image-click');
+    image.classList.add('image-click');
 }
