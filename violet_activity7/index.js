@@ -207,9 +207,9 @@ function right_answer() {
     audio3.play().then(function() {
 
         if (isAtSecondTry === "true")
-            localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7', '9');
-        else
             localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7', '5');
+        else
+            localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7', '9');
 
         setTimeout(function() {
             window.location.href = "../red_activity1/red.html";
