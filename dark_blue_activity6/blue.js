@@ -1,14 +1,13 @@
 var selectedCrayon = '';
 var incercari = 0;
 
-function check_activity_skip()
-{
+function check_activity_skip() {
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
     let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity6_isAtSecondTry');
     let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity6');
 
-    if (isAtSecondTry === "true" && points !== '0')
+    if (isAtSecondTry == "true" && points != '0')
         window.location.href = "../violet_activity7/index.html";
 }
 
@@ -22,7 +21,7 @@ function intro() {
     audio.play().then(function() {
         audio.muted = false;
     });
-    
+
     audio.onended = function() {
         document.getElementById("sound").style.display = "block";
         var audio2 = new Audio('creion_rosu.mp3');
@@ -34,75 +33,75 @@ function intro() {
             }, 5500);
         });
     };
-    
+
 }
 
 function selectCrayonTop(crayon) {
-    if(selectedCrayon == '' && crayon == 'crayon3'){
+    if (selectedCrayon == '' && crayon == 'crayon3') {
         resetCrayons();
         document.getElementById(crayon).style.top = "10";
         selectedCrayon = 'red';
-    } else if(selectedCrayon == 'red' && crayon == 'crayon6'){
-        if(document.getElementById('bigCercle1img').getAttribute('src') == "big_cercle_full.png"
-              && document.getElementById('bigCercle2img').getAttribute('src') == "big_cercle_full.png") {
+    } else if (selectedCrayon == 'red' && crayon == 'crayon6') {
+        if (document.getElementById('bigCercle1img').getAttribute('src') == "big_cercle_full.png" &&
+            document.getElementById('bigCercle2img').getAttribute('src') == "big_cercle_full.png") {
             resetCrayons();
             document.getElementById(crayon).style.top = "10";
             selectedCrayon = 'yellow';
-            
+
         } else {
             //mai sunt cercuri
             wrong_answer();
         }
-    } else if(selectedCrayon == 'brown' && crayon == 'crayon5'){
-        if(document.getElementById('smallTriangle1img').getAttribute('src') == "small_triangle_full.png"
-              && document.getElementById('smallTriangle2img').getAttribute('src') == "small_triangle_full.png"
-              && document.getElementById('smallTriangle3img').getAttribute('src') == "small_triangle_full.png"
-              && document.getElementById('smallTriangle4img').getAttribute('src') == "small_triangle_full.png") {
+    } else if (selectedCrayon == 'brown' && crayon == 'crayon5') {
+        if (document.getElementById('smallTriangle1img').getAttribute('src') == "small_triangle_full.png" &&
+            document.getElementById('smallTriangle2img').getAttribute('src') == "small_triangle_full.png" &&
+            document.getElementById('smallTriangle3img').getAttribute('src') == "small_triangle_full.png" &&
+            document.getElementById('smallTriangle4img').getAttribute('src') == "small_triangle_full.png") {
             resetCrayons();
             document.getElementById(crayon).style.top = "10";
             selectedCrayon = 'orange';
-            
+
         } else {
             //mai sunt cercuri
             wrong_answer();
         }
     } else {
         // culoare invalida
-            wrong_answer();
+        wrong_answer();
     }
 }
 
 function selectCrayonRight(crayon) {
-    if(selectedCrayon == 'yellow' && crayon == 'crayon7'){
-        if(document.getElementById('bigSquare1img').getAttribute('src') == "big_square_full.png"
-              && document.getElementById('bigSquare2img').getAttribute('src') == "big_square_full.png") {
+    if (selectedCrayon == 'yellow' && crayon == 'crayon7') {
+        if (document.getElementById('bigSquare1img').getAttribute('src') == "big_square_full.png" &&
+            document.getElementById('bigSquare2img').getAttribute('src') == "big_square_full.png") {
             resetCrayons();
             document.getElementById(crayon).style.right = "15";
-            selectedCrayon = 'blue';          
+            selectedCrayon = 'blue';
         } else {
             //mai sunt patrate
             wrong_answer();
         }
-    } else if(selectedCrayon == 'blue' && crayon == 'crayon11'){
-        if(document.getElementById('smallCercle1img').getAttribute('src') == "small_cercle_full.png"
-              && document.getElementById('smallCercle2img').getAttribute('src') == "small_cercle_full.png"
-              && document.getElementById('smallCercle3img').getAttribute('src') == "small_cercle_full.png"
-              && document.getElementById('smallCercle4img').getAttribute('src') == "small_cercle_full.png") {
+    } else if (selectedCrayon == 'blue' && crayon == 'crayon11') {
+        if (document.getElementById('smallCercle1img').getAttribute('src') == "small_cercle_full.png" &&
+            document.getElementById('smallCercle2img').getAttribute('src') == "small_cercle_full.png" &&
+            document.getElementById('smallCercle3img').getAttribute('src') == "small_cercle_full.png" &&
+            document.getElementById('smallCercle4img').getAttribute('src') == "small_cercle_full.png") {
             resetCrayons();
             document.getElementById(crayon).style.right = "15";
             selectedCrayon = 'brown';
-            
+
         } else {
             //mai sunt cercuri
             wrong_answer();
         }
     } else {
         // culoare invalida
-            wrong_answer();
+        wrong_answer();
     }
 }
 
-function resetCrayons(){
+function resetCrayons() {
     document.getElementById("crayon1").style.top = "0";
     document.getElementById("crayon2").style.top = "0";
     document.getElementById("crayon3").style.top = "0";
@@ -117,144 +116,148 @@ function resetCrayons(){
 }
 
 function colorBigSquare(squareId) {
-    if(selectedCrayon == 'yellow') {
+    if (selectedCrayon == 'yellow') {
         document.getElementById(squareId).src = "big_square_full.png";
     } else {
         wrong_answer();
-    } if(document.getElementById('bigSquare1img').getAttribute('src') == "big_square_full.png"
-              && document.getElementById('bigSquare2img').getAttribute('src') == "big_square_full.png") {
-            resetCrayons();
+    }
+    if (document.getElementById('bigSquare1img').getAttribute('src') == "big_square_full.png" &&
+        document.getElementById('bigSquare2img').getAttribute('src') == "big_square_full.png") {
+        resetCrayons();
+        document.getElementById("sound").style.display = "block";
+        var audio = new Audio('bravo-Cori.mp3');
+        audio.muted = true;
+        audio.play().then(function() {
+            audio.muted = false;
+        });
+        audio.onended = function() {
             document.getElementById("sound").style.display = "block";
-            var audio = new Audio('bravo-Cori.mp3');
+            var audio = new Audio('creion_albastru.mp3');
             audio.muted = true;
             audio.play().then(function() {
                 audio.muted = false;
+                setTimeout(function() {
+                    document.getElementById("sound").style.display = "none";
+                }, 5500);
             });
-            audio.onended = function() {
-                document.getElementById("sound").style.display = "block";
-                var audio = new Audio('creion_albastru.mp3');
-                audio.muted = true;
-                audio.play().then(function() {
-                    audio.muted = false;
-                    setTimeout(function() {
-                        document.getElementById("sound").style.display = "none";
-                    }, 5500);
-                });
-            };            
-        }
+        };
+    }
 }
 
 function colorSmallSquare(squareId) {
-    if(selectedCrayon == 'orange') {
+    if (selectedCrayon == 'orange') {
         document.getElementById(squareId).src = "small_square_full.png";
     } else {
         wrong_answer();
     }
-    if(document.getElementById('smallSquare1img').getAttribute('src') == "small_square_full.png"
-              && document.getElementById('smallSquare2img').getAttribute('src') == "small_square_full.png"
-              && document.getElementById('smallSquare3img').getAttribute('src') == "small_square_full.png") {
-            resetCrayons();
+    if (document.getElementById('smallSquare1img').getAttribute('src') == "small_square_full.png" &&
+        document.getElementById('smallSquare2img').getAttribute('src') == "small_square_full.png" &&
+        document.getElementById('smallSquare3img').getAttribute('src') == "small_square_full.png") {
+        resetCrayons();
+        document.getElementById("sound").style.display = "block";
+        var audio = new Audio('bravo-Cori.mp3');
+        audio.muted = true;
+        audio.play().then(function() {
+            audio.muted = false;
+        });
+        audio.onended = function() {
             document.getElementById("sound").style.display = "block";
-            var audio = new Audio('bravo-Cori.mp3');
-            audio.muted = true;
-            audio.play().then(function() {
-                audio.muted = false;
-            });
-            audio.onended = function() {
-                document.getElementById("sound").style.display = "block";
-                rightAnswer();
-            }; 
-        }
+            rightAnswer();
+        };
+    }
 }
+
 function colorBigCercle(cercleId) {
-    if(selectedCrayon == 'red') {
+    if (selectedCrayon == 'red') {
         document.getElementById(cercleId).src = "big_cercle_full.png";
     } else {
         wrong_answer();
     }
-    if(document.getElementById('bigCercle1img').getAttribute('src') == "big_cercle_full.png"
-              && document.getElementById('bigCercle2img').getAttribute('src') == "big_cercle_full.png") {
-            resetCrayons();
+    if (document.getElementById('bigCercle1img').getAttribute('src') == "big_cercle_full.png" &&
+        document.getElementById('bigCercle2img').getAttribute('src') == "big_cercle_full.png") {
+        resetCrayons();
+        document.getElementById("sound").style.display = "block";
+        var audio = new Audio('bravo-Cori.mp3');
+        audio.muted = true;
+        audio.play().then(function() {
+            audio.muted = false;
+        });
+        audio.onended = function() {
             document.getElementById("sound").style.display = "block";
-            var audio = new Audio('bravo-Cori.mp3');
+            var audio = new Audio('creion_galben.mp3');
             audio.muted = true;
             audio.play().then(function() {
                 audio.muted = false;
+                setTimeout(function() {
+                    document.getElementById("sound").style.display = "none";
+                }, 5500);
             });
-            audio.onended = function() {
-                document.getElementById("sound").style.display = "block";
-                var audio = new Audio('creion_galben.mp3');
-                audio.muted = true;
-                audio.play().then(function() {
-                    audio.muted = false;
-                    setTimeout(function() {
-                        document.getElementById("sound").style.display = "none";
-                    }, 5500);
-                });
-            };    
-        }
+        };
+    }
 }
+
 function colorSmallCercle(cercleId) {
-    if(selectedCrayon == 'blue') {
+    if (selectedCrayon == 'blue') {
         document.getElementById(cercleId).src = "small_cercle_full.png";
     } else {
         wrong_answer();
     }
-    if(document.getElementById('smallCercle1img').getAttribute('src') == "small_cercle_full.png"
-              && document.getElementById('smallCercle2img').getAttribute('src') == "small_cercle_full.png"
-              && document.getElementById('smallCercle3img').getAttribute('src') == "small_cercle_full.png"
-              && document.getElementById('smallCercle4img').getAttribute('src') == "small_cercle_full.png") {
-            resetCrayons();
+    if (document.getElementById('smallCercle1img').getAttribute('src') == "small_cercle_full.png" &&
+        document.getElementById('smallCercle2img').getAttribute('src') == "small_cercle_full.png" &&
+        document.getElementById('smallCercle3img').getAttribute('src') == "small_cercle_full.png" &&
+        document.getElementById('smallCercle4img').getAttribute('src') == "small_cercle_full.png") {
+        resetCrayons();
+        document.getElementById("sound").style.display = "block";
+        var audio = new Audio('bravo-Cori.mp3');
+        audio.muted = true;
+        audio.play().then(function() {
+            audio.muted = false;
+        });
+        audio.onended = function() {
             document.getElementById("sound").style.display = "block";
-            var audio = new Audio('bravo-Cori.mp3');
+            var audio = new Audio('creion_maro.mp3');
             audio.muted = true;
             audio.play().then(function() {
                 audio.muted = false;
+                setTimeout(function() {
+                    document.getElementById("sound").style.display = "none";
+                }, 5500);
             });
-            audio.onended = function() {
-                document.getElementById("sound").style.display = "block";
-                var audio = new Audio('creion_maro.mp3');
-                audio.muted = true;
-                audio.play().then(function() {
-                    audio.muted = false;
-                    setTimeout(function() {
-                        document.getElementById("sound").style.display = "none";
-                    }, 5500);
-                });
-            }; 
-            
-        }
+        };
+
+    }
 }
+
 function colorSmallTriangle(triangleId) {
-    if(selectedCrayon == 'brown') {
+    if (selectedCrayon == 'brown') {
         document.getElementById(triangleId).src = "small_triangle_full.png";
     } else {
         wrong_answer();
     }
-    if(document.getElementById('smallTriangle1img').getAttribute('src') == "small_triangle_full.png"
-              && document.getElementById('smallTriangle2img').getAttribute('src') == "small_triangle_full.png"
-              && document.getElementById('smallTriangle3img').getAttribute('src') == "small_triangle_full.png"
-              && document.getElementById('smallTriangle4img').getAttribute('src') == "small_triangle_full.png") {
-            resetCrayons();
+    if (document.getElementById('smallTriangle1img').getAttribute('src') == "small_triangle_full.png" &&
+        document.getElementById('smallTriangle2img').getAttribute('src') == "small_triangle_full.png" &&
+        document.getElementById('smallTriangle3img').getAttribute('src') == "small_triangle_full.png" &&
+        document.getElementById('smallTriangle4img').getAttribute('src') == "small_triangle_full.png") {
+        resetCrayons();
+        document.getElementById("sound").style.display = "block";
+        var audio = new Audio('bravo-Cori.mp3');
+        audio.muted = true;
+        audio.play().then(function() {
+            audio.muted = false;
+        });
+        audio.onended = function() {
             document.getElementById("sound").style.display = "block";
-            var audio = new Audio('bravo-Cori.mp3');
+            var audio = new Audio('creion_portocaliu.mp3');
             audio.muted = true;
             audio.play().then(function() {
                 audio.muted = false;
+                setTimeout(function() {
+                    document.getElementById("sound").style.display = "none";
+                }, 5500);
             });
-            audio.onended = function() {
-                document.getElementById("sound").style.display = "block";
-                var audio = new Audio('creion_portocaliu.mp3');
-                audio.muted = true;
-                audio.play().then(function() {
-                    audio.muted = false;
-                    setTimeout(function() {
-                        document.getElementById("sound").style.display = "none";
-                    }, 5500);
-                });
-            }; 
-            
-        }
+        };
+
+    }
 }
 
 
@@ -270,7 +273,7 @@ function wrong_answer() {
         // 0 puncte, activitatea va fi reluata la final
         localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity6', '0');
         localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity6_isAtSecondTry', "true");
-        if(isAtSecondTry == "false") {
+        if (isAtSecondTry == "false") {
             var audio = new Audio('finish2.mp3');
             audio.play().then(function() {
 
@@ -279,20 +282,20 @@ function wrong_answer() {
                 }, 6000);
             });
             audio.onended = function() {
-                window.location.href = "../violet_activity7/index.html";              
+                window.location.href = "../violet_activity7/index.html";
             }
         }
     } else {
         localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity6_isAtSecondTry', "false");
         document.getElementById("sound").style.display = "none";
 
-    var audio = new Audio('mai_incearca.mp3');
-    audio.play().then(function() {
+        var audio = new Audio('mai_incearca.mp3');
+        audio.play().then(function() {
 
-        setTimeout(function() {
+            setTimeout(function() {
 
-        }, 6000);
-    });
+            }, 6000);
+        });
     }
 }
 
@@ -311,6 +314,8 @@ function rightAnswer() {
         } else {
             localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity6', '3');
         }
+
+        localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity6_isAtSecondTry', "true");
 
         setTimeout(function() {
             window.location.href = "../violet_activity7/index.html";

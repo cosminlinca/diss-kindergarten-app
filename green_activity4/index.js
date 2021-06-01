@@ -12,14 +12,13 @@ function enable_images() {
     document.getElementById("verde").style.pointerEvents = "auto";
 }
 
-function check_activity_skip()
-{
+function check_activity_skip() {
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
     let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity4_isAtSecondTry');
     let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity4');
 
-    if (isAtSecondTry === "true" && points !== '0')
+    if (isAtSecondTry == "true" && points != '0')
         window.location.href = "../blue_activity5/index.html";
 }
 
@@ -59,7 +58,7 @@ function click_semafor(culoare) {
 function wrong_answer() {
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
-    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity3_isAtSecondTry');
+    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity4_isAtSecondTry');
     document.getElementById("sound").style.display = "block";
     disable_images();
 
@@ -67,7 +66,7 @@ function wrong_answer() {
 
     let audio_name, timeout;
 
-    if (isAtSecondTry === "true" || incercari === 3) {
+    if (isAtSecondTry == "true" || incercari === 3) {
         audio_name = './final_try.m4a';
         timeout = 7500;
     } else {
@@ -79,7 +78,7 @@ function wrong_answer() {
 
         setTimeout(function() {
 
-            if (isAtSecondTry === "true") {
+            if (isAtSecondTry == "true") {
                 // if it is wrong also at the final attempt just go to next activity
                 window.location.href = "../blue_activity5/index.html";
             }
@@ -115,10 +114,12 @@ function right_answer() {
     let audio3 = new Audio('./activity4_success.m4a');
     audio3.play().then(function() {
 
-        if (isAtSecondTry === "true")
+        if (isAtSecondTry == "true")
             localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity4', '5');
         else
             localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity4', '9');
+
+        localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity4_isAtSecondTry', "true");
 
         setTimeout(function() {
             window.location.href = "../blue_activity5/index.html";

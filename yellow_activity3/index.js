@@ -13,14 +13,13 @@ function enable_images() {
     document.getElementById("mananca").style.pointerEvents = "auto";
 }
 
-function check_activity_skip()
-{
+function check_activity_skip() {
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
     let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity3_isAtSecondTry');
     let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity3');
 
-    if (isAtSecondTry === "true" && points !== '0')
+    if (isAtSecondTry == "true" && points != '0')
         window.location.href = "../green_activity4/index.html";
 }
 
@@ -69,6 +68,8 @@ function click_image(image, image_id) {
                 // First try => 9 points
                     localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity3', '9');
 
+                localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity3_isAtSecondTry', "true");
+
                 setTimeout(function() {
                     window.location.href = "../green_activity4/index.html";
                 }, 3000);
@@ -78,8 +79,7 @@ function click_image(image, image_id) {
 
             let audio_name, timeout;
 
-            if (isAtSecondTry === "true" || incercari === 3 )
-            {
+            if (isAtSecondTry == "true" || incercari === 3) {
                 audio_name = './final_try.m4a';
                 timeout = 7500;
             } else {
@@ -97,7 +97,7 @@ function click_image(image, image_id) {
                         images[i].classList.remove('image-click');
                     }
 
-                    if (isAtSecondTry === "true") {
+                    if (isAtSecondTry == "true") {
                         // if it is wrong also at the final attempt just go to next activity
                         window.location.href = "../green_activity4/index.html";
                     }

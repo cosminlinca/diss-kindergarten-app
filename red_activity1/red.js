@@ -10,14 +10,13 @@ function enable_images() {
     document.getElementById("cifra4").style.pointerEvents = "auto";
 }
 
-function check_activity_skip()
-{
+function check_activity_skip() {
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
     let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity1_isAtSecondTry');
     let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity1');
 
-    if (isAtSecondTry === "true" && points !== '0')
+    if (isAtSecondTry == "true" && points != '0')
         window.location.href = "../orange_activity2/index.html";
 }
 
@@ -75,7 +74,7 @@ function wrong_answer() {
 
     let audio_name, timeout;
 
-    if (isAtSecondTry === "true" || incercari === 3) {
+    if (isAtSecondTry == "true" || incercari === 3) {
         audio_name = 'red_activity_wrong_final.mp3';
         timeout = 7500;
     } else {
@@ -88,7 +87,7 @@ function wrong_answer() {
 
         setTimeout(function() {
 
-            if (isAtSecondTry === "true") {
+            if (isAtSecondTry == "true") {
                 // if it is wrong also at the final attempt just go to next activity
                 window.location.href = "../orange_activity2/index.html";
             }
@@ -125,6 +124,8 @@ function right_answer() {
         } else {
             localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity1', '9');
         }
+
+        localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity1_isAtSecondTry', "true");
 
         setTimeout(function() {
             window.location.href = "../orange_activity2/index.html";

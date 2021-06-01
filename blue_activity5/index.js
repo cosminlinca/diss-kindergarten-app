@@ -18,14 +18,13 @@ function enable_elements() {
     document.getElementById("sound_rooster").style.pointerEvents = "auto";
 }
 
-function check_activity_skip()
-{
+function check_activity_skip() {
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
     let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity5_isAtSecondTry');
     let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity5');
 
-    if (isAtSecondTry === "true" && points !== '0')
+    if (isAtSecondTry == "true" && points != '0')
         window.location.href = "../dark_blue_activity6/index.html";
 }
 
@@ -52,9 +51,9 @@ function initialize() {
 
     let audio = new Audio('story.mp4');
     audio.muted = true;
-    audio.play().then(function () {
+    audio.play().then(function() {
         audio.muted = false;
-        setTimeout(function () {
+        setTimeout(function() {
             document.getElementById("voice-sound").style.display = "none";
             enable_elements();
         }, 29500);
@@ -73,25 +72,27 @@ function onAnimalClick(id) {
     if (id === 'dog') {
         document.getElementById('barometru').src = 'ROGVA.png';
         let audio = new Audio('success.mp4');
-        audio.play().then(function () {
+        audio.play().then(function() {
 
-            if (isAtSecondTry === "true")
+            if (isAtSecondTry == "true")
             // Second try => 5 points
                 localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5', '5');
             else
             // First try => 9 points
                 localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5', '9');
 
-            setTimeout(function () {
+            localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5_isAtSecondTry', "true");
+
+            setTimeout(function() {
                 window.location.href = "../dark_blue_activity6/index.html";
             }, 2000);
         });
     } else {
 
-        if (isAtSecondTry === "true") {
+        if (isAtSecondTry == "true") {
             let audio = new Audio('last_trial.mp4');
-            audio.play().then(function () {
-                setTimeout(function () {
+            audio.play().then(function() {
+                setTimeout(function() {
                     window.location.href = "../dark_blue_activity6/index.html";
                 }, 4500);
             });
@@ -103,16 +104,16 @@ function onAnimalClick(id) {
                 localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5', '0');
                 localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5_isAtSecondTry', "true");
 
-                audio.play().then(function () {
-                    setTimeout(function () {
+                audio.play().then(function() {
+                    setTimeout(function() {
                         window.location.href = "../dark_blue_activity6/index.html";
                     }, 4500);
                 });
 
             } else {
                 let audio = new Audio('wrong.mp4');
-                audio.play().then(function () {
-                    setTimeout(function () {
+                audio.play().then(function() {
+                    setTimeout(function() {
                         document.getElementById("voice-sound").style.display = "none";
                         enable_elements();
                     }, 3000);

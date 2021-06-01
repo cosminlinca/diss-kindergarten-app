@@ -16,14 +16,13 @@ function enable_images() {
     document.getElementById("easter-eggs").style.pointerEvents = "auto";
 }
 
-function check_activity_skip()
-{
+function check_activity_skip() {
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
     let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity2_isAtSecondTry');
     let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity2');
 
-    if (isAtSecondTry === "true" && points !== '0')
+    if (isAtSecondTry == "true" && points != '0')
         window.location.href = "../yellow_activity3/index.html";
 }
 
@@ -35,9 +34,9 @@ function initialize() {
 
     let audio = new Audio('story.mp4');
     audio.muted = true;
-    audio.play().then(function () {
+    audio.play().then(function() {
         audio.muted = false;
-        setTimeout(function () {
+        setTimeout(function() {
             document.getElementById("sound").style.display = "none";
             enable_images();
         }, 15000);
@@ -57,25 +56,27 @@ function click_image(imageId) {
         document.getElementById('barometru').src = 'RO.png';
 
         let audio = new Audio('success.mp4');
-        audio.play().then(function () {
+        audio.play().then(function() {
 
-            if (isAtSecondTry === "true")
+            if (isAtSecondTry == "true")
             // Second try => 5 points
                 localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity2', '5');
             else
             // First try => 9 points
                 localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity2', '9');
 
-            setTimeout(function () {
+            localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity2_isAtSecondTry', "true");
+
+            setTimeout(function() {
                 window.location.href = "../yellow_activity3/index.html";
             }, 7000);
         });
     } else {
 
-        if (isAtSecondTry === "true") {
+        if (isAtSecondTry == "true") {
             let audio = new Audio('last_trial.mp4');
-            audio.play().then(function () {
-                setTimeout(function () {
+            audio.play().then(function() {
+                setTimeout(function() {
                     window.location.href = "../yellow_activity3/index.html";
                 }, 4500);
             });
@@ -88,16 +89,16 @@ function click_image(imageId) {
                 localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity2', '0');
                 localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity2_isAtSecondTry', "true");
 
-                audio.play().then(function () {
-                    setTimeout(function () {
+                audio.play().then(function() {
+                    setTimeout(function() {
                         window.location.href = "../yellow_activity3/index.html";
                     }, 4500);
                 });
 
             } else {
                 let audio = new Audio('wrong_answer.mp4');
-                audio.play().then(function () {
-                    setTimeout(function () {
+                audio.play().then(function() {
+                    setTimeout(function() {
                         document.getElementById("sound").style.display = "none";
                         enable_images();
                     }, 3000);
