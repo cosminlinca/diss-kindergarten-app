@@ -13,18 +13,17 @@ var incercari = 0;
 
 function go_to_next_activity()
 {
-    let activity_nr = 6;
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
-    let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity6');
+    let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity7');
 
-        if (points == '0')
-        {
-            window.location.href = "../violet_activity7/index.html";
-        } else
-        {
-            window.location.href = "../final/index.html";
-        }
+    if (points == '0')
+    {
+        window.location.href = "../violet_activity7/index.html";
+    } else
+    {
+        window.location.href = "../final/index.html";
+    }
 }
 
 function intro() {

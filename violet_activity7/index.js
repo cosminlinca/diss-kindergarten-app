@@ -22,7 +22,7 @@ function go_to_next_activity()
     if (isAtSecondTry == "true")
     {
         window.location.href = "../final/index.html";
-        return;;
+        return;
     }
     else{
         // search next unfinished activity
