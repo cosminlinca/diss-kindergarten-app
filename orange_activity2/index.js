@@ -16,18 +16,54 @@ function enable_images() {
     document.getElementById("easter-eggs").style.pointerEvents = "auto";
 }
 
-function check_activity_skip() {
+function go_to_next_activity()
+{
+    let activity_nr = 2;
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
-    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity2_isAtSecondTry');
-    let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity2');
 
-    if (isAtSecondTry == "true" && points != '0')
-        window.location.href = "../yellow_activity3/index.html";
+    // search next unfinished activity
+    for(let i=activity_nr+1;i<=7;i++)
+    {
+        let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity' + i.toLocaleString());
+
+        if (points == '0')
+        {
+            switch (i)
+            {
+                case 3:
+                    window.location.href = "../yellow_activity3/index.html";
+                    return;
+                case 4:
+                    window.location.href = "../green_activity4/index.html";
+                    return;
+                case 5:
+                    window.location.href = "../blue_activity5/index.html";
+                    return;
+                case 6:
+                    window.location.href = "../dark_blue_activity6/index.html";
+                    return;
+                case 7:
+                    window.location.href = "../violet_activity7/index.html";
+                    return;
+            }
+        }
+    }
+    window.location.href = "../final/index.html";
 }
 
+// function check_activity_skip() {
+//     let currentGroup = localStorage.getItem('CurrentGroup');
+//     let currentSymbol = localStorage.getItem('CurrentSymbol');
+//     let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity2_isAtSecondTry');
+//     let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity2');
+//
+//     if (isAtSecondTry == "true" && points != '0')
+//         window.location.href = "../yellow_activity3/index.html";
+// }
+
 function initialize() {
-    check_activity_skip();
+    // check_activity_skip();
 
     disable_images();
     document.getElementById("sound").style.display = "block";
@@ -68,7 +104,8 @@ function click_image(imageId) {
             localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity2_isAtSecondTry', "true");
 
             setTimeout(function() {
-                window.location.href = "../yellow_activity3/index.html";
+                go_to_next_activity();
+                // window.location.href = "../yellow_activity3/index.html";
             }, 7000);
         });
     } else {
@@ -77,7 +114,8 @@ function click_image(imageId) {
             let audio = new Audio('last_trial.mp4');
             audio.play().then(function() {
                 setTimeout(function() {
-                    window.location.href = "../yellow_activity3/index.html";
+                    go_to_next_activity();
+                    // window.location.href = "../yellow_activity3/index.html";
                 }, 4500);
             });
         } else {
@@ -91,7 +129,8 @@ function click_image(imageId) {
 
                 audio.play().then(function() {
                     setTimeout(function() {
-                        window.location.href = "../yellow_activity3/index.html";
+                        go_to_next_activity();
+                        // window.location.href = "../yellow_activity3/index.html";
                     }, 4500);
                 });
 
@@ -105,9 +144,6 @@ function click_image(imageId) {
                 });
             }
         }
-
-
     }
-
 
 }

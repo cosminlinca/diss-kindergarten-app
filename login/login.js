@@ -9,6 +9,14 @@ function initialize_second_try_flags() {
     localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5_isAtSecondTry', "false");
     localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity6_isAtSecondTry', "false");
     localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7_isAtSecondTry', "false");
+
+    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity1', '0');
+    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity2', '0');
+    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity3', '0');
+    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity4', '0');
+    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5', '0');
+    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity6', '0');
+    localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7', '0');
 }
 
 function initialize() {

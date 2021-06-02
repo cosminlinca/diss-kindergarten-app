@@ -1,5 +1,6 @@
 let incercari = 0;
 let activitati = 1;
+let isAtSecondTry;
 
 function disable_images() {
     document.getElementById("chef").style.pointerEvents = "none";
@@ -13,18 +14,69 @@ function enable_images() {
     document.getElementById("doctor").style.pointerEvents = "auto";
 }
 
-function check_activity_skip() {
+function go_to_next_activity()
+{
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
-    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity7_isAtSecondTry');
-    let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity7');
 
-    if (isAtSecondTry == "true" && points != '0')
+    if (isAtSecondTry == "true")
+    {
         window.location.href = "../final/index.html";
+        return;;
+    }
+    else{
+        // search next unfinished activity
+        for(let i=1;i<=7;i++)
+        {
+            let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity' + i.toLocaleString());
+
+            if (points == '0')
+            {
+                switch (i)
+                {
+                    case 1:
+                        window.location.href = "../red_activity1/red.html";
+                        return;
+                    case 2:
+                        window.location.href = "../orange_activity2/index.html";
+                        return;
+                    case 3:
+                        window.location.href = "../yellow_activity3/index.html";
+                        return;
+                    case 4:
+                        window.location.href = "../green_activity4/index.html";
+                        return;
+                    case 5:
+                        window.location.href = "../blue_activity5/index.html";
+                        return;
+                    case 6:
+                        window.location.href = "../dark_blue_activity6/index.html";
+                        return;
+                    case 7:
+                        window.location.href = "../violet_activity7/index.html";
+                        return;
+                }
+            }
+        }
+        window.location.href = "../final/index.html";
+    }
 }
 
+// function check_activity_skip() {
+//     let currentGroup = localStorage.getItem('CurrentGroup');
+//     let currentSymbol = localStorage.getItem('CurrentSymbol');
+//     let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity7_isAtSecondTry');
+//     let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity7');
+//
+//     if (isAtSecondTry == "true" && points != '0')
+//         window.location.href = "../final/index.html";
+// }
+
 function initialize() {
-    check_activity_skip();
+    let currentGroup = localStorage.getItem('CurrentGroup');
+    let currentSymbol = localStorage.getItem('CurrentSymbol');
+    isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity7_isAtSecondTry');
+    // check_activity_skip();
 
     document.getElementById("sound").style.display = "block";
     disable_images();
@@ -103,7 +155,6 @@ function click_job(job) {
 function wrong_answer() {
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
-    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity7_isAtSecondTry');
     document.getElementById("sound").style.display = "block";
     disable_images();
     incercari++;
@@ -120,7 +171,8 @@ function wrong_answer() {
 
                     setTimeout(function() {
                         document.getElementById("sound").style.display = "none";
-                        window.location.href = "../final/index.html";
+                        go_to_next_activity();
+                        // window.location.href = "../final/index.html";
                     }, 7000);
                 });
 
@@ -136,8 +188,9 @@ function wrong_answer() {
                         localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7', '0');
                         localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7_isAtSecondTry', "true");
 
-                        window.location.href = "../red_activity1/red.html";
                         document.getElementById("sound").style.display = "none";
+                        go_to_next_activity();
+                        // window.location.href = "../red_activity1/red.html";
                     }, 7000);
                 });
 
@@ -153,7 +206,6 @@ function wrong_answer() {
 function right_answer() {
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
-    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity7_isAtSecondTry');
 
     document.getElementById("sound").style.display = "block";
     disable_images();
@@ -218,10 +270,11 @@ function right_answer() {
             localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity7_isAtSecondTry', "true");
 
             setTimeout(function() {
-                if (isAtSecondTry == "true")
-                    window.location.href = "../final/index.html";
-                else
-                    window.location.href = "../red_activity1/red.html";
+                // if (isAtSecondTry == "true")
+                //     window.location.href = "../final/index.html";
+                // else
+                //     window.location.href = "../red_activity1/red.html";
+                go_to_next_activity();
             }, 4000);
         });
     }

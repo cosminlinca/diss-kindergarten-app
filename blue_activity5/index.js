@@ -18,15 +18,42 @@ function enable_elements() {
     document.getElementById("sound_rooster").style.pointerEvents = "auto";
 }
 
-function check_activity_skip() {
+function go_to_next_activity()
+{
+    let activity_nr = 5;
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
-    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity5_isAtSecondTry');
-    let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity5');
 
-    if (isAtSecondTry == "true" && points != '0')
-        window.location.href = "../dark_blue_activity6/index.html";
+    // search next unfinished activity
+    for(let i=activity_nr+1;i<=7;i++)
+    {
+        let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity' + i.toLocaleString());
+
+        if (points == '0')
+        {
+            switch (i)
+            {
+                case 6:
+                    window.location.href = "../dark_blue_activity6/index.html";
+                    return;
+                case 7:
+                    window.location.href = "../violet_activity7/index.html";
+                    return;
+            }
+        }
+    }
+    window.location.href = "../final/index.html";
 }
+
+// function check_activity_skip() {
+//     let currentGroup = localStorage.getItem('CurrentGroup');
+//     let currentSymbol = localStorage.getItem('CurrentSymbol');
+//     let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity5_isAtSecondTry');
+//     let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity5');
+//
+//     if (isAtSecondTry == "true" && points != '0')
+//         window.location.href = "../dark_blue_activity6/index.html";
+// }
 
 function playCowSound() {
     let cowSound = new Audio('cow_sound.mp3');
@@ -44,7 +71,7 @@ function playWrongSound() {
 }
 
 function initialize() {
-    check_activity_skip();
+    // check_activity_skip();
 
     disable_elements();
     document.getElementById("voice-sound").style.display = "block";
@@ -84,7 +111,8 @@ function onAnimalClick(id) {
             localStorage.setItem(currentGroup + '_' + currentSymbol + '_Activity5_isAtSecondTry', "true");
 
             setTimeout(function() {
-                window.location.href = "../dark_blue_activity6/index.html";
+                go_to_next_activity();
+                // window.location.href = "../dark_blue_activity6/index.html";
             }, 2000);
         });
     } else {
@@ -93,7 +121,8 @@ function onAnimalClick(id) {
             let audio = new Audio('last_trial.mp4');
             audio.play().then(function() {
                 setTimeout(function() {
-                    window.location.href = "../dark_blue_activity6/index.html";
+                    go_to_next_activity();
+                    // window.location.href = "../dark_blue_activity6/index.html";
                 }, 4500);
             });
         } else {
@@ -106,7 +135,8 @@ function onAnimalClick(id) {
 
                 audio.play().then(function() {
                     setTimeout(function() {
-                        window.location.href = "../dark_blue_activity6/index.html";
+                        go_to_next_activity();
+                        // window.location.href = "../dark_blue_activity6/index.html";
                     }, 4500);
                 });
 

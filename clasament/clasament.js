@@ -1,3 +1,8 @@
+function backToStart()
+{
+    window.location.href = "../final/index.html";
+}
+
 function initialize() {
     let table = document.getElementById("table_clasament");
 

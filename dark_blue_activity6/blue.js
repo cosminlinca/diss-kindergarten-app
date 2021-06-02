@@ -1,19 +1,35 @@
 var selectedCrayon = '';
 var incercari = 0;
 
-function check_activity_skip() {
+// function check_activity_skip() {
+//     let currentGroup = localStorage.getItem('CurrentGroup');
+//     let currentSymbol = localStorage.getItem('CurrentSymbol');
+//     let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity6_isAtSecondTry');
+//     let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity6');
+//
+//     if (isAtSecondTry == "true" && points != '0')
+//         window.location.href = "../violet_activity7/index.html";
+// }
+
+function go_to_next_activity()
+{
+    let activity_nr = 6;
     let currentGroup = localStorage.getItem('CurrentGroup');
     let currentSymbol = localStorage.getItem('CurrentSymbol');
-    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity6_isAtSecondTry');
     let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity6');
 
-    if (isAtSecondTry == "true" && points != '0')
-        window.location.href = "../violet_activity7/index.html";
+        if (points == '0')
+        {
+            window.location.href = "../violet_activity7/index.html";
+        } else
+        {
+            window.location.href = "../final/index.html";
+        }
 }
 
 function intro() {
 
-    check_activity_skip();
+    // check_activity_skip();
 
     document.getElementById("sound").style.display = "block";
     var audio = new Audio('intro.mp3');
@@ -282,7 +298,8 @@ function wrong_answer() {
                 }, 6000);
             });
             audio.onended = function() {
-                window.location.href = "../violet_activity7/index.html";
+                go_to_next_activity();
+                // window.location.href = "../violet_activity7/index.html";
             }
         }
     } else {
@@ -318,7 +335,8 @@ function rightAnswer() {
         localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity6_isAtSecondTry', "true");
 
         setTimeout(function() {
-            window.location.href = "../violet_activity7/index.html";
+            go_to_next_activity();
+            // window.location.href = "../violet_activity7/index.html";
         }, 3000);
     });
 }

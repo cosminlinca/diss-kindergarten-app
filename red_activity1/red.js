@@ -4,24 +4,63 @@ function disable_images() {
     document.getElementById("cifra4").style.pointerEvents = "none";
 }
 
+function go_to_next_activity()
+{
+    let activity_nr = 1;
+    let currentGroup = localStorage.getItem('CurrentGroup');
+    let currentSymbol = localStorage.getItem('CurrentSymbol');
+
+    // search next unfinished activity
+    for(let i=activity_nr+1;i<=7;i++)
+    {
+        let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity' + i.toLocaleString());
+
+        if (points == '0')
+        {
+            switch (i)
+            {
+                case 2:
+                    window.location.href = "../orange_activity2/index.html";
+                    return;
+                case 3:
+                    window.location.href = "../yellow_activity3/index.html";
+                    return;
+                case 4:
+                    window.location.href = "../green_activity4/index.html";
+                    return;
+                case 5:
+                    window.location.href = "../blue_activity5/index.html";
+                    return;
+                case 6:
+                    window.location.href = "../dark_blue_activity6/index.html";
+                    return;
+                case 7:
+                    window.location.href = "../violet_activity7/index.html";
+                    return;
+            }
+        }
+    }
+    window.location.href = "../final/index.html";
+}
+
 function enable_images() {
     document.getElementById("cifra2").style.pointerEvents = "auto";
     document.getElementById("cifra3").style.pointerEvents = "auto";
     document.getElementById("cifra4").style.pointerEvents = "auto";
 }
 
-function check_activity_skip() {
-    let currentGroup = localStorage.getItem('CurrentGroup');
-    let currentSymbol = localStorage.getItem('CurrentSymbol');
-    let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity1_isAtSecondTry');
-    let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity1');
-
-    if (isAtSecondTry == "true" && points != '0')
-        window.location.href = "../orange_activity2/index.html";
-}
+// function check_activity_skip() {
+//     let currentGroup = localStorage.getItem('CurrentGroup');
+//     let currentSymbol = localStorage.getItem('CurrentSymbol');
+//     let isAtSecondTry = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity1_isAtSecondTry');
+//     let points = localStorage.getItem(currentGroup + '_' + currentSymbol + '_Activity1');
+//
+//     if (isAtSecondTry == "true" && points != '0')
+//         window.location.href = "../orange_activity2/index.html";
+// }
 
 function initialize() {
-    check_activity_skip();
+    // check_activity_skip();
 
     document.getElementById("cifra2").style.pointerEvents = "none";
     document.getElementById("cifra3").style.pointerEvents = "none";
@@ -88,8 +127,9 @@ function wrong_answer() {
         setTimeout(function() {
 
             if (isAtSecondTry == "true") {
+                go_to_next_activity();
                 // if it is wrong also at the final attempt just go to next activity
-                window.location.href = "../orange_activity2/index.html";
+                // window.location.href = "../orange_activity2/index.html";
             }
 
             if (incercari === 3) {
@@ -97,7 +137,8 @@ function wrong_answer() {
                 localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity1', '0');
                 localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity1_isAtSecondTry', "true");
 
-                window.location.href = "../orange_activity2/index.html";
+                go_to_next_activity();
+                // window.location.href = "../orange_activity2/index.html";
             } else {
                 localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity1_isAtSecondTry', "false");
                 document.getElementById("sound").style.display = "none";
@@ -128,7 +169,8 @@ function right_answer() {
         localStorage.setItem(currentGroup + "_" + currentSymbol + '_Activity1_isAtSecondTry', "true");
 
         setTimeout(function() {
-            window.location.href = "../orange_activity2/index.html";
+            go_to_next_activity();
+            // window.location.href = "../orange_activity2/index.html";
         }, 7000);
     });
 }
