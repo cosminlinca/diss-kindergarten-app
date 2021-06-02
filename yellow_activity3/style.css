@@ -66,7 +66,6 @@ body {
     overflow: hidden;
     align-items: center;
     display: flex;
-    cursor: pointer;
 }
 
 .word img {
@@ -76,7 +75,27 @@ body {
     min-height: 100%
 }
 
-.word:hover{
+#os{
+    cursor: pointer;
+}
+
+#catelus{
+    cursor: pointer;
+}
+
+#mananca{
+    cursor: pointer;
+}
+
+#os:hover{
+    transform: scale(1.1);
+}
+
+#catelus:hover{
+    transform: scale(1.1);
+}
+
+#mananca:hover{
     transform: scale(1.1);
 }
 

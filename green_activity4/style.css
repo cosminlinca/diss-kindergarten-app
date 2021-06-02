@@ -85,9 +85,28 @@ body {
     overflow: hidden;
     align-items: center;
     display: flex;
+}
+
+#rosu{
     cursor: pointer;
 }
 
-.semafor:hover{
+#verde{
+    cursor: pointer;
+}
+
+#galben{
+    cursor: pointer;
+}
+
+#rosu:hover{
+    transform: scale(1.1);
+}
+
+#galben:hover{
+    transform: scale(1.1);
+}
+
+#verde:hover{
     transform: scale(1.1);
 }
