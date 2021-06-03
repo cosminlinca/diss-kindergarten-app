@@ -5,6 +5,11 @@
     <meta charset="UTF-8">
     <link href="style.css" rel="stylesheet">
     <script src="./index.js"></script>
+    <script type="module">
+        import confetti from 'https://cdn.skypack.dev/canvas-confetti';
+        confetti();
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Felicitari</title>
 </head>
 
@@ -23,9 +28,15 @@
     </div>
 
     <div id="butoane">
-        <button onclick="backToStart()" type="button"> Inapoi la Start </button>
+        <button onclick="backToStart()" type="button">
+            <i class="fa fa-home"></i>
+            Start
+        </button>
 
-        <button onclick="goToRanking()" type="button"> Mergi la Clasament</button>
+        <button onclick="goToRanking()" type="button">
+            <i class="fa fa-bars"></i>
+            Clasament
+        </button>
     </div>
 
 </body>
